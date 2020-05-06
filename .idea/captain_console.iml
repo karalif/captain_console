@@ -4,9 +4,15 @@
     <facet type="django" name="Django">
       <configuration>
         <option name="rootFolder" value="$MODULE_DIR$" />
+<<<<<<< HEAD
+        <option name="settingsModule" value="" />
+        <option name="manageScript" value="manage.py" />
+        <option name="environment" value="&lt;map&gt;&#10;  &lt;entry&gt;&#10;    &lt;string&gt;DJANGO_SETTINGS_MODULE&lt;/string&gt;&#10;    &lt;string&gt;captain_console.settings&lt;/string&gt;&#10;  &lt;/entry&gt;&#10;  &lt;entry&gt;&#10;    &lt;string&gt;PYTHONUNBUFFERED&lt;/string&gt;&#10;    &lt;string&gt;1&lt;/string&gt;&#10;  &lt;/entry&gt;&#10;&lt;/map&gt;" />
+=======
         <option name="settingsModule" value="captain_console/settings.py" />
         <option name="manageScript" value="manage.py" />
         <option name="environment" value="&lt;map/&gt;" />
+>>>>>>> 13ead06adb1d7536dd3da5fa585c8ac694a9605d
         <option name="doNotUseTestRunner" value="false" />
         <option name="trackFilePattern" value="" />
       </configuration>
@@ -14,9 +20,15 @@
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+<<<<<<< HEAD
+      <excludeFolder url="file://$MODULE_DIR$" />
+    </content>
+    <orderEntry type="jdk" jdkName="Python 3.7 (captain_console)" jdkType="Python SDK" />
+=======
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
     <orderEntry type="inheritedJdk" />
+>>>>>>> 13ead06adb1d7536dd3da5fa585c8ac694a9605d
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">
