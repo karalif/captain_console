@@ -1,3 +1,10 @@
 .game {
     border-bottom: solid 2px rgba(155, 155, 155, .5);
+<<<<<<< HEAD
+=======
+
+}
+.console {
+    border-bottom: solid 2px rgba(155, 155, 155, .5);
+>>>>>>> 13ead06adb1d7536dd3da5fa585c8ac694a9605d
 }
