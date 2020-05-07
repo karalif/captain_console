@@ -8,4 +8,6 @@
     {% for game_image in game.gameimage_set.all %}
         <img src="{{game_image.image}}"class="game.img" />
     {% endfor %}
+
+    <a href="{% url 'delete_game' game.id %}" class="block btn btn-primary">Delete game</a>
 {% endblock %}
