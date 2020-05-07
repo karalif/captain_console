@@ -1,8 +1,19 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from game.models import Games, GameImage
-from game.forms.game_form import GameCreateForm
+from game.forms.game_form import GameCreateForm, GameUpdateForm
+from django.http import JsonResponse
+
 
 def index(request):
+    if 'search_filter' in request.GET:
+        search_filter = request.GET['search_filter']
+        games = [ {
+            'id': x.id,
+            'name': x.name,
+            'description': x.description,
+            'firstImage': x.gameimage_set.first().image
+        } for x in Games.objects.filter(name__icontains=search_filter)]
+        return JsonResponse({'data': games})
     context = {'games': Games.objects.all().order_by('name')}
     return render(request, 'game/index.html', context)
 
@@ -30,3 +41,17 @@ def delete_game(request, id):
     game = get_object_or_404(Games, pk=id)
     game.delete()
     return redirect('game-index')
+
+def update_game(request, id):
+    instance = get_object_or_404(Games, pk=id)
+    if request.method == 'POST':
+        form = GameUpdateForm(data=request.POST,instance=instance)
+        if form.is_valid():
+            form.save()
+            return redirect('game_details', id=id)
+    else:
+        form = GameUpdateForm(instance=instance)
+    return render(request,'game/update_game.html',{
+        'form': form,
+        'id': id
+    })

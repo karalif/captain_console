@@ -10,4 +10,5 @@
     {% endfor %}
 
     <a href="{% url 'delete_game' game.id %}" class="block btn btn-primary">Delete game</a>
+    <a href="{% url 'update_game' game.id %}" class="block btn btn-primary">Update game</a>
 {% endblock %}
