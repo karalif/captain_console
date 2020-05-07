@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="console">
-    <h2>Welcome to the console app</h2>
+    <h3>Consoles</h3>
+    <div class="consoles">
+        {% for console in consoles%}
+            {% include 'console/single_console.html' with console=console %}
+        {% endfor%}
     </div>
 {% endblock %}
