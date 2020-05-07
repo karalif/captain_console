@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
     <h3 class="red">Hello from the index function within the game app</h3>
+<div class="input-group">
+    <input type="search" class= "form-control" id ="search-box" placeholder="Enter your search here.."/>
+    <div class="input-group-btn">
+        <button type="button" id="search-btn" class="btn btn-default">Search</button>
+    </div>
+</div>
 <div class="games">
     {% for game in games %}
         {% include 'game/single_game.html' with game=game %}
