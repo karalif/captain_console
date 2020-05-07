@@ -1,8 +1,10 @@
+
 $(document).ready(function () {
-    $('#search-btn').on( types: 'click', selector: function(e) {
+    $('#search-btn').on("click", function(e) {
         e.preventDefault();
         var searchText= $('#search-box').val();
-            $.ajax( url: {
+        console.log(searchText)
+            $.ajax({
                 url:'/games?search_filter=' + searchText,
                 type: 'GET',
                 success: function(resp){
@@ -16,7 +18,7 @@ $(document).ready(function () {
                             </div>`
                 });
                 $('.games').html(newHtml.join(''));
-                $('#search-box').val(value: '');
+                $('#search-box').val('');
             },
             error: function(xhr, status, error){
                     //TODO: show toestr
