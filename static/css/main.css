@@ -151,3 +151,9 @@ a:hover {
     float: right;
     border-radius: 50%;
 }
+
+.console-img {
+    height: 100px;
+    width: auto;
+    background-size: cover;
+}
