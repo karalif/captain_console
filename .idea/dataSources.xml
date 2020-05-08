@@ -7,5 +7,17 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://balarama.db.elephantsql.com:5432/pzqbkttk</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="CaptainConsole DB" uuid="db3d794b-3785-41fe-b1e3-8fe911f13c61">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://balarama.db.elephantsql.com:5432/pzqbkttk</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Captain Console DB 2" uuid="6a87af63-569c-481b-b5c4-5fe436d75f30">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://balarama.db.elephantsql.com:5432/pzqbkttk</jdbc-url>
+    </data-source>
   </component>
 </project>
