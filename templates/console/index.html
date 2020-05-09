@@ -1,9 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h3>Consoles</h3>
-    <div class="consoles">
-        {% for console in consoles%}
-            {% include 'console/single_console.html' with console=console %}
-        {% endfor%}
+    <h3 class="red">Hello from the index function within the console app</h3>
+<div class="input-group">
+    <input type="search" class= "form-control" id ="search-box" placeholder="Enter your search here.."/>
+    <div class="input-group-btn">
+        <button type="button" id="search-btn" class="btn btn-default">Search</button>
     </div>
+</div>
+<div class="console">
+    {% for console in consoles %}
+        {% include 'console/single_console.html' with console=console %}
+    {% endfor %}
+</div>
 {% endblock %}
+
+
+
+

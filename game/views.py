@@ -18,6 +18,8 @@ def index(request):
     context = {'games': Games.objects.all().order_by('name')}
     return render(request, 'game/index.html', context)
 
+
+
 # /games/1
 @login_required
 def get_game_by_id(request, id):

@@ -6,5 +6,11 @@
     <p>{{ console.price}}</p>
     <div class="console-img" style="background-image: url('{{console.image}}')"></div>
 
+    <p>Console type: {{ console.category.name}} </p>
+    <img src="{{console.image}}"class="console.img" />
+
+    <a href="{% url 'delete_console' console.id %}" class="block btn btn-primary">Delete console</a>
+    <a href="{% url 'update_console' console.id %}" class="block btn btn-primary">Update console</a>
+
 
 {% endblock %}
