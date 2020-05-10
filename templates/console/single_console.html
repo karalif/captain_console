@@ -1,6 +1,7 @@
 <div class="well console">
     <a href="/consoles/{{ console.id }}">
-        <div class="console-img" style="background-image: url('{{console.image}}')"></div>
+        <img class ="console-img" src="{{console.consoleimage_set.first.image}}"/>
+
         <h4>{{console.name}}</h4>
         <p>Description: {{console.description}} </p>
     <a/>

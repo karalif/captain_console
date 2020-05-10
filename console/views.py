@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from console.models import Console
+from console.models import Console, ConsoleImage
 from console.forms.console_form import ConsoleCreateForm, ConsoleUpdateForm
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
@@ -12,7 +12,7 @@ def index(request):
             'id': x.id,
             'name': x.name,
             'description': x.description,
-       #     'firstImage': x.consoleimage_set.first().image
+            'firstImage': x.consoleimage_set.first().image
         } for x in Console.objects.filter(name__icontains=search_filter)]
         return JsonResponse({'data': consoles})
     context = {'consoles': Console.objects.all().order_by('name')}
@@ -33,8 +33,8 @@ def create_console(request):
         form = ConsoleCreateForm(data=request.POST)
         if form.is_valid():
             console = form.save()
-          #  console_image = Console(image = request.POST['image'], console=console)
-           # console_image.save()
+            console_image = ConsoleImage(image = request.POST['image'], console=console)
+            console_image.save()
             return redirect('console-index')
     else:
         form = ConsoleCreateForm()

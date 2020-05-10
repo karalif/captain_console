@@ -4,10 +4,11 @@
     <h1>{{ console.name }}</h1>
     <p>{{ console.description}}</p>
     <p>{{ console.price}}</p>
-    <div class="console-img" style="background-image: url('{{console.image}}')"></div>
-
     <p>Console type: {{ console.category.name}} </p>
-    <img src="{{console.image}}"class="console.img" />
+
+    {% for console_image in console.consoleimage_set.all %}
+        <img src="{{console_image.image}}"class="console.img" />
+    {% endfor %}
 
     <a href="{% url 'delete_console' console.id %}" class="block btn btn-primary">Delete console</a>
     <a href="{% url 'update_console' console.id %}" class="block btn btn-primary">Update console</a>
