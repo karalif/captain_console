@@ -154,12 +154,12 @@ a:hover {
     display: block;
 }
 
-.profile-img {
+.profile-image {
     position: relative;
-    width: 50px;
-    height: 50px;
+    width: 15px;
+    height: 15px;
     float: right;
-    border-radius: 50%;
+    border-radius: 5%;
 }
 
 .console-img {

@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'game.apps.GameConfig',
     'console.apps.ConsoleConfig',
-    'user.apps.UserConfig'
+    'user.apps.UserConfig',
+    'shopping_cart.apps.ShoppingCartConfig'
 
 ]
 
