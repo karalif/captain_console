@@ -6,24 +6,37 @@
     border-bottom: solid 2px rgba(155, 155, 155, .5);
 }*/
 
-html {
-    position: relative;
-    min-height: 100%;
-}
-
-body {
-    font-family: 'Lucida Grande', 'Tahoma';
-    margin-bottom: 150px;
+html, body {
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    background: white;
+    font-family: "Raleway";
 }
 
 * {
     box-sizing: border-box;
-    font-family: 'Roboto';
+    font-family: 'Raleway';
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Raleway';
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Raleway';
+    font-family: "Raleway";
     font-weight: bold;
+    margin: 5px;
+    color: coral;
+}
+
+.page-wrapper {
+    min-height: 100%;
+}
+
+.page-wrapper a:hover{
+    color: white;
 }
 
 .navbar{
@@ -46,14 +59,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a{
-    color: #1b1b47 !important;
+    color: white !important;
 }
 
-a:hover {
+/*a:hover {
     background-image: linear-gradient(white, white);
     background-repeat: no-repeat;
     background-position: bottom;
-    animation: line-under .5s 1 both;
 }
 
 @keyframes line-under {
@@ -63,7 +75,7 @@ a:hover {
     100% {
         background-size: 100% 3px;
     }
-}
+}*/
 
 @keyframes animate-navbar {
     0% {
@@ -168,17 +180,130 @@ a:hover {
     background-size: cover;
 }
 
-.footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 130px;
-    padding: 20px;
-    background_color: #64649c; /*virkar ekki*/
-    color: #64649c;
+.text-input {
+    padding: .7rem 1rem;
+    display: block;
+    width: 100%;
+    border-radius: 5px;
+    outline: none;
+    color: white;
+    line-height: 1.5rem;
+    font-size: 1.2rem;
+    font-family: "Roboto Light";
 }
 
-.footer p {
-    text-align: justify;
+.btn {
+    padding: .5rem 1rem;
+    background: orange;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: .25rem;
 }
+
+.btn-big {
+    padding: .7rem 1.3rem;
+    line-height: 1.3rem;
+}
+
+.btn:hover {
+    color: white; !important;
+    background: cadetblue;
+}
+.footer {
+    background: grey;
+    color: white;
+    height: 400px;
+    position: relative;
+    bottom: -50px;
+    font-family: "Roboto Light";
+}
+
+.footer .top-footer {
+    height: 350px;
+    display: flex;
+}
+
+.footer .top-footer .footer-section {
+    flex: 1;
+    padding: 25px;
+}
+
+.footer .top-footer h1,
+.footer .top-footer h2 {
+    color: white;
+}
+
+.footer .top-footer .about h1 span{
+    color: orange;
+    font-family: "Roboto Light";
+}
+
+.footer .top-footer .about .contact-form span {
+    font-family: "Roboto Light";
+    margin-bottom: 8px;
+}
+
+.footer .top-footer .about .socials a {
+    border: 1px solid grey;
+    widht: 45px;
+    height: 41px;
+    padding-top: 5px;
+    margin-right: 5px;
+    text-align: center;
+    display: inline-block;
+    font-size: 1.3em;
+    border-radius: 5px;
+    transition: all .3s;
+}
+
+.footer .top-footer .about .socials a:hover {
+    border: 1px solid white;
+    transition: all .3s;
+}
+
+.footer .top-footer .links ul a {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.footer .top-footer .links ul a:hover {
+    margin-left: 15px;
+    transition: all .3s;
+}
+
+.footer .top-footer .contact-form contact-input {
+    background: white;
+    color: darkslateblue;
+    margin-bottom: 10px;
+    line-height: 1.5em;
+    padding: .9rem 1.4rem;
+}
+
+.footer .top-footer .contact-form contact-input:focus {
+    background: black;
+}
+
+.footer .top-footer .contact-form .contact-btn {
+    float: right;
+}
+
+.footer .bottom-footer {
+    background: black;
+    color: white;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    padding-top: 20px;
+    border: none;
+}
+
+/*
+Langar að breyta um font
+Iconin sem ég setti inn virka ekki
+Kemur alltaf einhver hvít lína undir linkana
+væri til í að stækka text boxið
+*/
