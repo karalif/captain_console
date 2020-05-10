@@ -11,21 +11,22 @@ html, body {
     padding: 0px;
     margin: 0px;
     background: white;
-    font-family: "Raleway";
+    color: black;
+    font-family: "Tahoma";
 }
 
 * {
     box-sizing: border-box;
-    font-family: 'Raleway';
+    font-family: 'Tahoma';
 }
 
 * {
     box-sizing: border-box;
-    font-family: 'Raleway';
+    font-family: 'Tahoma';
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Raleway";
+    font-family: "Tahoma";
     font-weight: bold;
     margin: 5px;
     color: coral;
@@ -36,7 +37,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .page-wrapper a:hover{
-    color: white;
+    color: black;
 }
 
 .navbar{
@@ -54,12 +55,12 @@ h1, h2, h3, h4, h5, h6 {
     botton: -1000px;
     right: 0;
     left: 0;
-    background-image: linear-gradient(to right, #EF626C, #840CCF);
+    background-image: linear-gradient(to right, #EF626C, #ffddcc);
     animation: animate-navbar 3s linear infinite alternate;
 }
 
 a{
-    color: white !important;
+    color: white; /*ekki breyta þessu því þá breytast linkarnir í footer*/
 }
 
 /*a:hover {
@@ -118,14 +119,12 @@ a{
     border-radius: 0;
     margin: 0;
     bakcground-image: none;
-    background-color: white;
+    background-color: #ffddcc;
     text-align: center;
 }
 
-/* */
-
 .games .game:hover {
-    background-image: linear-gradient(#C500E2, #9A27F7), linear-gradient(#6564FF, #2A96FA), linear-gradient(#2FF89F, #68FF6B), linear-gradient(#F82D97, #E82FD9);
+    background-image: linear-gradient(#ffddcc, #ffddcc), linear-gradient(#6564FF, #2A96FA), linear-gradient(#2FF89F, #68FF6B), linear-gradient(#F82D97, #E82FD9);
     background-repeat: no-repeat;
     background-position: left top, right top, right bottom, left bottom;
     background-size: 03px, 3px 0, 0 3px, 3px 0;
@@ -180,16 +179,17 @@ a{
     background-size: cover;
 }
 
+/* FOOTER */
+
 .text-input {
     padding: .7rem 1rem;
     display: block;
     width: 100%;
-    border-radius: 5px;
     outline: none;
-    color: white;
+    color: black;
     line-height: 1.5rem;
     font-size: 1.2rem;
-    font-family: "Roboto Light";
+    font-family: "Tahoma";
 }
 
 .btn {
@@ -198,6 +198,7 @@ a{
     color: white;
     border: 1px solid transparent;
     border-radius: .25rem;
+    font-family: "Tahoma";
 }
 
 .btn-big {
@@ -207,15 +208,14 @@ a{
 
 .btn:hover {
     color: white; !important;
-    background: cadetblue;
+    background: darkorange;
 }
 .footer {
     background: grey;
     color: white;
-    height: 400px;
+    height: 350px;
     position: relative;
     bottom: -50px;
-    font-family: "Roboto Light";
 }
 
 .footer .top-footer {
@@ -235,11 +235,11 @@ a{
 
 .footer .top-footer .about h1 span{
     color: orange;
-    font-family: "Roboto Light";
+    font-family: "Tahoma";
 }
 
 .footer .top-footer .about .contact-form span {
-    font-family: "Roboto Light";
+    font-family: "Tahoma";
     margin-bottom: 8px;
 }
 
@@ -273,8 +273,9 @@ a{
 }
 
 .footer .top-footer .contact-form contact-input {
+    font-family: Tahoma;
     background: white;
-    color: darkslateblue;
+    color: black;
     margin-bottom: 10px;
     line-height: 1.5em;
     padding: .9rem 1.4rem;
@@ -289,7 +290,8 @@ a{
 }
 
 .footer .bottom-footer {
-    background: black;
+    font-family: Tahoma;
+    background: dimgrey;
     color: white;
     height: 50px;
     width: 100%;
@@ -302,8 +304,6 @@ a{
 }
 
 /*
-Langar að breyta um font
 Iconin sem ég setti inn virka ekki
-Kemur alltaf einhver hvít lína undir linkana
-væri til í að stækka text boxið
+tengja linkana
 */
