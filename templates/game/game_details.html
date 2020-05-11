@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h1>{{ game.name }}</h1>
-    <p>{{ game.description}}</p>
-    <h4>Price {{ game.price}} USD</h4>
-    <h4>Age Limit: {{ game.age_limit}} years</h4>
-    <p>Console: {{ game.console.name}} </p>
-    {% for game_image in game.gameimage_set.all %}
-        <img src="{{game_image.image}}"class="game.img" />
+    <h1>{{ product.name }}</h1>
+    <p>{{ product.description}}</p>
+    <h4>Price {{ product.price}} USD</h4>
+    <h4>Age Limit: {{ product.age_limit}} years</h4>
+   <!--- <p>Console: {{ product.console.name}} </p> --->
+    {% for product_image in product.productimage_set.all %}
+        <img src="{{product_image.image}}"class="product.img" />
     {% endfor %}
 
-    <a href="{% url 'delete_game' game.id %}" class="block btn btn-primary">Delete game</a>
-    <a href="{% url 'update_game' game.id %}" class="block btn btn-primary">Update game</a>
+    <a href="{% url 'delete_product' product.id %}" class="block btn btn-primary">Delete game</a>
+    <a href="{% url 'update_product' product.id %}" class="block btn btn-primary">Update game</a>
 {% endblock %}

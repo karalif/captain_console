@@ -1,0 +1,9 @@
+<div class="well product">
+    <a href="/products/{{ product.id }}">
+        <img class ="product-img" src="{{product.productimage_set.first.image}}"/>
+    <h3>{{product.name}}<h3/>
+    <h4>Price: {{product.price}} USD<h4/>
+        <h4>Age Limit: {{product.age_limit}} years<h4/>
+    </a>
+    <a href="{% url 'add_to_cart' product.id %}" class = "btn btn-default">Add to cart</a>
+</div>

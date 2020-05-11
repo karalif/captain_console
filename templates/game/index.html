@@ -7,9 +7,9 @@
         <button type="button" id="search-btn" class="btn btn-default">Search</button>
     </div>
 </div>
-<div class="games">
-    {% for game in games %}
-        {% include 'game/single_game.html' with game=game %}
+<div class="products">
+    {% for product in products %}
+        {% include 'game/single_product.html' with game=game %}
     {% endfor %}
 </div>
 {% endblock %}

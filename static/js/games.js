@@ -5,19 +5,19 @@ $(document).ready(function () {
         var searchText= $('#search-box').val();
         console.log(searchText)
             $.ajax({
-                url:'/games?search_filter=' + searchText,
+                url:'/gproducts?search_filter=' + searchText,
                 type: 'GET',
                 success: function(resp){
                 var newHtml = resp.data.map(d =>{
-                    return `<div class="well game">
-                            <a href="/games/${d.id}">
-                                <img class="game-img" src="${d.firstImage}"/>
+                    return `<div class="well product">
+                            <a href="/products/${d.id}">
+                                <img class="product-img" src="${d.firstImage}"/>
                                 <h4>${d.name}</h4>
                                 <p>${d.description}</p>
                             </a>
                             </div>`
                 });
-                $('.games').html(newHtml.join(''));
+                $('.products').html(newHtml.join(''));
                 $('#search-box').val('');
             },
             error: function(xhr, status, error){
