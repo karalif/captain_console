@@ -8,6 +8,7 @@ class ProfileForm(ModelForm):
         widgets={
             'favorite_game': widgets.Select(attrs={'class': 'form-control'}),
             'profile_image': widgets.TextInput(attrs={'class': 'form-control'})
+
         }
 
 

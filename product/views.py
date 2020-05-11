@@ -5,7 +5,7 @@ from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 
 
-def index(request):
+def home_index(request):
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
         products = [ {
@@ -16,7 +16,7 @@ def index(request):
         } for x in Product.objects.filter(name__icontains=search_filter)]
         return JsonResponse({'data': products})
     context = {'product': Product.objects.all().order_by('name')}
-    return render(request, 'product/index.html', context)
+    return render(request, 'product/home_index.html', context)
 
 def get_games(request):
     if 'search_filter' in request.GET:
@@ -32,7 +32,7 @@ def get_games(request):
     context = {'product': Product.objects.filter(group_id=2).order_by('name')}
     return render(request, 'product/game_index.html', context)
 
-def get_console(request):
+def get_consoles(request):
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
         products = [ {
@@ -46,7 +46,7 @@ def get_console(request):
     return render(request, 'product/console_index.html', context)
 
 # /games/1
-@login_required
+
 def get_product_by_id(request, id):
     return render(request, 'product/product_details.html', {
         'product': get_object_or_404(Product, pk=id)

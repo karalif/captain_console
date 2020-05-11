@@ -1,10 +1,11 @@
 from django.urls import path
 from . import views
 urlpatterns = [
-    path('', views.index, name="product-index"),
-    path('games/', views.get_games,name="product-game_index")
-   # path('<int:id>', views.get_game_by_id, name="game_details"),
-    #path('create_game', views.create_game, name="create_game"),
-    #path('delete_game/<int:id>',views.delete_game, name="delete_game"),
-    #path('update_game/<int:id>',views.update_game, name="update_game")
+    path('', views.home_index, name="product-home_index"),
+    path('games/', views.get_games,name="product-game_index"),
+    path('consoles/', views.get_consoles,name="product-console_index"),
+    path('<int:id>', views.get_product_by_id, name="product_details"),
+    path('create_product', views.create_product, name="create_product"),
+    path('delete_product/<int:id>',views.delete_product, name="delete_product"),
+    path('update_product/<int:id>',views.update_product, name="update_product")
 ]

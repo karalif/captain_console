@@ -5,11 +5,10 @@
     <p>{{ product.description}}</p>
     <h4>Price {{ product.price}} USD</h4>
     <h4>Age Limit: {{ product.age_limit}} years</h4>
-   <!--- <p>Console: {{ product.console.name}} </p> --->
     {% for product_image in product.productimage_set.all %}
         <img src="{{product_image.image}}"class="product.img" />
     {% endfor %}
+    <a href="{% url 'delete_product' product.id %}" class="block btn btn-primary">Delete product</a>
+    <a href="{% url 'update_product' product.id %}" class="block btn btn-primary">Update product</a>
 
-  <!---  <a href="{% url 'delete_product' product.id %}" class="block btn btn-primary">Delete </a>
-    <a href="{% url 'update_product' product.id %}" class="block btn btn-primary">Update p</a> --->
 {% endblock %}

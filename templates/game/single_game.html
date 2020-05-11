@@ -1,9 +1,0 @@
-<div class="well game">
-    <a href="/games/{{ game.id }}">
-        <img class ="game-img" src="{{game.gameimage_set.first.image}}"/>
-    <h3>{{game.name}}<h3/>
-    <h4>Price: {{game.price}} USD<h4/>
-        <h4>Age Limit: {{game.age_limit}} years<h4/>
-    </a>
-    <a href="{% url 'add_to_cart' game.id %}" class = "btn btn-default">Add to cart</a>
-</div>
