@@ -18,6 +18,32 @@ def index(request):
     context = {'product': Product.objects.all().order_by('name')}
     return render(request, 'product/index.html', context)
 
+def get_games(request):
+    if 'search_filter' in request.GET:
+        search_filter = request.GET['search_filter']
+        products = [ {
+            'id': x.id,
+            'name': x.name,
+            'description': x.description,
+            'age_limit': x.age_limit,
+            'firstImage': x.productimage_set.first().image
+        } for x in Product.objects.filter(name__icontains=search_filter)]
+        return JsonResponse({'data': products})
+    context = {'product': Product.objects.filter(group_id=2).order_by('name')}
+    return render(request, 'product/game_index.html', context)
+
+def get_console(request):
+    if 'search_filter' in request.GET:
+        search_filter = request.GET['search_filter']
+        products = [ {
+            'id': x.id,
+            'name': x.name,
+            'description': x.description,
+            'firstImage': x.productimage_set.first().image
+        } for x in Product.objects.filter(name__icontains=search_filter)]
+        return JsonResponse({'data': products})
+    context = {'product': Product.objects.filter(group_id=1).order_by('name')}
+    return render(request, 'product/console_index.html', context)
 
 # /games/1
 @login_required

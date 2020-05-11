@@ -1,19 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h3 class="red">Hello from the index function within the app</h3>
+    <h3 class="red">Hello from the index function within the game app</h3>
 <div class="input-group">
     <input type="search" class= "form-control" id ="search-box" placeholder="Enter your search here.."/>
     <div class="input-group-btn">
         <button type="button" id="search-btn" class="btn btn-default">Search</button>
     </div>
 </div>
-<div class="products">
+<div class="product">
     {% for product in product %}
-        {% include 'product/single_product.html' with product=product %}
+        {% include 'product/single_game.html' with product=product %}
     {% endfor %}
 </div>
 {% endblock %}
-
-
-
-
