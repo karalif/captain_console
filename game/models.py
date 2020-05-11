@@ -13,6 +13,7 @@ class Games(models.Model):
     on_sale = models.BooleanField()
     category = models.ForeignKey(ConsoleCategory, on_delete=models.CASCADE)
     console = models.ForeignKey(Console, on_delete=models.CASCADE)
+
     def __str__(self):
         return self.name
 

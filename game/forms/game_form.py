@@ -1,8 +1,11 @@
+
 from django.forms import ModelForm, widgets
-from game.models import Games
+from game.models import Games, GameImage
 from django import forms
 
+
 class GameUpdateForm(ModelForm):
+    image = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
     class Meta:
         model= Games
         exclude = {'id'}
@@ -13,6 +16,7 @@ class GameUpdateForm(ModelForm):
             'price': widgets.NumberInput(attrs={ 'class':'form-control' }),
             'console': widgets.Select(attrs={ 'class':'form-control' }),
             'on_sale': widgets.CheckboxInput(attrs={ 'class':'checkbox' })
+
         }
 
 class GameCreateForm(ModelForm):

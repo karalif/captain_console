@@ -3,7 +3,8 @@
 
     <h1>{{ game.name }}</h1>
     <p>{{ game.description}}</p>
-    <p>{{ game.price}}</p>
+    <h4>Price {{ game.price}} USD</h4>
+    <h4>Age Limit: {{ game.age_limit}} years</h4>
     <p>Console: {{ game.console.name}} </p>
     {% for game_image in game.gameimage_set.all %}
         <img src="{{game_image.image}}"class="game.img" />
