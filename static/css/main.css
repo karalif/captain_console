@@ -1,4 +1,3 @@
-
 html, body {
     height: 100%;
     padding: 0px;
@@ -69,7 +68,6 @@ a{
     background-repeat: no-repeat;
     background-position: bottom;
 }
-
 @keyframes line-under {
     0% {
         background-size: 0px  3px;
