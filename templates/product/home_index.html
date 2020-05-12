@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
+
+   <div class="header-img"></div>
+
 <main>
-    <div class="header-img"></div>
 </main>
 <div class="input-group">
     <input type="search" class= "form-control" id ="search-box" placeholder="Enter your search here.."/>
@@ -9,6 +11,7 @@
         <button type="button" id="search-btn" class="btn btn-default">Search</button>
     </div>
 </div>
+
 <div class="products">
     {% for product in product %}
         {% include 'product/single_product.html' with product=product %}
