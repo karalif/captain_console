@@ -1,11 +1,3 @@
-/*.game {
-    border-bottom: solid 2px rgba(155, 155, 155, .5);
-    color: green;
-}/*
-/*.console {
-    border-bottom: solid 2px rgba(155, 155, 155, .5);
-}*/
-
 html, body {
     height: 100%;
     padding: 0px;
@@ -29,7 +21,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Tahoma";
     font-weight: bold;
     margin: 5px;
-    color: coral;
+    color: black;
 }
 
 .page-wrapper {
@@ -55,7 +47,7 @@ h1, h2, h3, h4, h5, h6 {
     botton: -1000px;
     right: 0;
     left: 0;
-    background-image: linear-gradient(to right, #EF626C, #ffddcc);
+    background-image: linear-gradient(to right, darkgreen, seagreen);
     animation: animate-navbar 3s linear infinite alternate;
 }
 
@@ -119,12 +111,12 @@ a{
     border-radius: 0;
     margin: 0;
     bakcground-image: none;
-    background-color: #ffddcc;
+    background-color: seagreen;
     text-align: center;
 }
 
 .games .game:hover {
-    background-image: linear-gradient(#ffddcc, #ffddcc), linear-gradient(#6564FF, #2A96FA), linear-gradient(#2FF89F, #68FF6B), linear-gradient(#F82D97, #E82FD9);
+    background-image: linear-gradient(darkseagreen, darkseagreen), linear-gradient(darkseagreen, darkseagreen), linear-gradient(darkseagreen, darkseagreen), linear-gradient(darkseagreen, darkseagreen);
     background-repeat: no-repeat;
     background-position: left top, right top, right bottom, left bottom;
     background-size: 03px, 3px 0, 0 3px, 3px 0;
@@ -194,7 +186,7 @@ a{
 
 .btn {
     padding: .5rem 1rem;
-    background: orange;
+    background: darkseagreen;
     color: white;
     border: 1px solid transparent;
     border-radius: .25rem;
@@ -208,10 +200,10 @@ a{
 
 .btn:hover {
     color: white; !important;
-    background: darkorange;
+    background: darkgreen;
 }
 .footer {
-    background: grey;
+    background: black;
     color: white;
     height: 350px;
     position: relative;
@@ -234,7 +226,7 @@ a{
 }
 
 .footer .top-footer .about h1 span{
-    color: orange;
+    color: seagreen;
     font-family: "Tahoma";
 }
 
@@ -291,7 +283,7 @@ a{
 
 .footer .bottom-footer {
     font-family: Tahoma;
-    background: dimgrey;
+    background: seagreen;
     color: white;
     height: 50px;
     width: 100%;
@@ -303,7 +295,10 @@ a{
     border: none;
 }
 
-/*
-Iconin sem ég setti inn virka ekki
-tengja linkana
-*/
+/* HEADER IMAGE */
+.header-img {
+  width: 100%;
+  height: 500px;
+  background: url(mario.png);
+  background-size: cover;
+}
