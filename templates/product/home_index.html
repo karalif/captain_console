@@ -11,6 +11,14 @@
         <button type="button" id="search-btn" class="btn btn-default">Search</button>
     </div>
 </div>
+<div class="categories" id="product_categories" >
+        <li><a href="{% url 'product-gameboy_index' %}">Gameboy</a></li>
+        <li><a href="{% url 'product-neo_index' %}">Neo</a></li>
+        <li><a href="{% url 'product-nes_index' %}">NES</a></li>
+        <li><a href="{% url 'product-sega_index' %}">Sega</a></li>
+        <li><a href="{% url 'product-turbografix_index' %}">TurboGrafix</a></li>
+
+</div>
 
 <div class="products">
     {% for product in product %}
