@@ -4,4 +4,5 @@
     <h3>{{product.name}}<h3/>
     <h4>Price: {{product.price}} USD<h4/>
     </a>
+    <a href="{% url 'delete_from_cart' product.id%}" class = "btn btn-default">Delete item from cart</a>
 </div>
