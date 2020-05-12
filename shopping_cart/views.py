@@ -8,18 +8,14 @@ from .models import Cart
 @login_required()
 def my_cart(request):
     if request.method == 'GET':
-        # cartItem = Cart.objects.filter(user_id=request.user.id)
-        # for product_id in Cart.objects.filter(user_id = request.user.id):
-        item_set = Cart.objects.filter(user_id=request.user.id)
-        # context = {'items': Cart.objects.filter(user_id = request.user.id)}
-        print(item_set)
         prod = []
-        for i in item_set:
-            print(i)
-            prod.append(Product.objects.filter(id=str(i)))
-            context = {'items': prod}
-            print(context)
-        return render(request, 'shopping_cart/my_cart.html', context)
+        for x in Cart.objects.filter(user_id = request.user.id):
+            prod.append(str(x))
+        prod_int = [int(i) for i in prod]
+        context = {'items': Product.objects.filter(id__in = prod_int)}
+        return render(request,'shopping_cart/my_cart.html', context)
+
+
 
 @login_required()
 def add_to_cart(request, id):
