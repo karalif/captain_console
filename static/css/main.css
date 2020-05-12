@@ -127,8 +127,14 @@ a{
     transform: perspective(400px) scale(1.1) rotateY(15deg);
 }
 
+.product-img {
+    width: 300px;
+    height: 300px;
+}
+
 .game-img {
     width: 200px;
+    height: 200px;
     transition: transform 1s ease-in;
 }
 
@@ -167,7 +173,7 @@ a{
 
 .console-img {
     height: 100px;
-    width: auto;
+    width: 100%;
     background-size: cover;
 }
 
