@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
     <h2>Hello, you are in your cart!</h2>
+<div class="products">
+    {% for item in items %}
+        {% include 'shopping_cart/cart_item.html' with product=item %}
+    {% endfor %}
+</div>
 
 {% endblock %}
