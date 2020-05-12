@@ -6,9 +6,11 @@ class ProfileForm(ModelForm):
         model=Profile
         exclude =['id','user']
         widgets={
-            'favorite_game': widgets.Select(attrs={'class': 'form-control'}),
+            'name': widgets.TextInput(attrs={'class': 'form-control'}),
+            'birth_date': widgets.TextInput(attrs={'class': 'form-control'}),
+            'address': widgets.TextInput(attrs={'class': 'form-control'}),
+            'zip_code': widgets.TextInput(attrs={'class': 'form-control'}),
+            'city': widgets.TextInput(attrs={'class': 'form-control'}),
+            'country': widgets.TextInput(attrs={'class': 'form-control'}),
             'profile_image': widgets.TextInput(attrs={'class': 'form-control'})
-
         }
-
-
