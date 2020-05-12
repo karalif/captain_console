@@ -97,6 +97,7 @@ a{
     }
 }
 
+
 .games {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -214,6 +215,7 @@ a{
     height: 350px;
     position: relative;
     bottom: -50px;
+    font-size: 16px;
 }
 
 .footer .top-footer {
