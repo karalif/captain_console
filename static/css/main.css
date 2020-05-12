@@ -25,7 +25,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a{
-    color: deeppink;
+    color: forestgreen;
 }
 
 /* HEADER IMAGE */
@@ -208,7 +208,7 @@ a{
     background: darkgreen;
 }
 .footer {
-    background: black;
+    background: dimgrey;
     color: white;
     height: 350px;
     position: relative;
