@@ -1,3 +1,4 @@
+
 html, body {
     height: 100%;
     padding: 0px;
@@ -24,12 +25,26 @@ h1, h2, h3, h4, h5, h6 {
     color: black;
 }
 
+/* HEADER IMAGE */
+.header-img {
+  width: 100%;
+  height: 500px;
+  background: url(cc.png);
+  background-size: cover;
+}
+
 .page-wrapper {
     min-height: 100%;
 }
 
 .page-wrapper a:hover{
     color: black;
+}
+
+.cc_image {
+    width: 10px;
+    height: 10px;
+    background: url(supermario.png);
 }
 
 .navbar{
@@ -52,7 +67,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a{
-    color: white; /*ekki breyta þessu því þá breytast linkarnir í footer*/
+    color: white; /*ekki breyta Ã¾essu Ã¾vÃ­ Ã¾Ã¡ breytast linkarnir Ã­ footer*/
 }
 
 /*a:hover {
@@ -301,12 +316,4 @@ a{
     left: 0px;
     padding-top: 20px;
     border: none;
-}
-
-/* HEADER IMAGE */
-.header-img {
-  width: 100%;
-  height: 500px;
-  background: url(mario5.png);
-  background-size: cover;
 }
