@@ -1,12 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     <h3 class="red">Hello from the index function within the console app</h3>
-<div class="input-group">
-    <input type="search" class= "form-control" id ="search-box" placeholder="Enter your search here.."/>
-    <div class="input-group-btn">
-        <button type="button" id="search-btn" class="btn btn-default">Search</button>
-    </div>
-</div>
+
 
 <div class="categories" id="product_categories" >
         <li><a href="{% url 'product-gameboy_index' %}">Gameboy</a></li>
