@@ -1,4 +1,3 @@
-
 html, body {
     height: 100%;
     padding: 0px;
@@ -29,7 +28,7 @@ h1, h2, h3, h4, h5, h6 {
 .header-img {
   width: 100%;
   height: 500px;
-  background: url(cc.png);
+  background: url(supermario.png);
   background-size: cover;
 }
 
@@ -39,12 +38,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .page-wrapper a:hover{
     color: black;
-}
-
-.cc_image {
-    width: 10px;
-    height: 10px;
-    background: url(supermario.png);
 }
 
 .navbar{
@@ -67,7 +60,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a{
-    color: white; /*ekki breyta Ã¾essu Ã¾vÃ­ Ã¾Ã¡ breytast linkarnir Ã­ footer*/
+    color: white; /*ekki breyta þessu því þá breytast linkarnir í footer*/
 }
 
 /*a:hover {
@@ -75,7 +68,6 @@ a{
     background-repeat: no-repeat;
     background-position: bottom;
 }
-
 @keyframes line-under {
     0% {
         background-size: 0px  3px;
