@@ -25,3 +25,25 @@ def payment_info(request):
     context = {'items': Product.objects.filter(id__in=prod_int), 'totalprice': _total_price(prod_int),
                'itemcount': item_count}
     return render(request, 'payment/payment_info.html', context)
+
+def order_overview(request):
+    prod = []
+    item_count = 0
+    for x in Cart.objects.filter(user_id=request.user.id):
+        prod.append(str(x))
+        item_count += 1
+    prod_int = [int(i) for i in prod]
+    context = {'items': Product.objects.filter(id__in=prod_int), 'totalprice': _total_price(prod_int),
+               'itemcount': item_count}
+    return render(request, 'payment/overview.html', context)
+
+def confirmation(request):
+    prod = []
+    item_count = 0
+    for x in Cart.objects.filter(user_id=request.user.id):
+        prod.append(str(x))
+        item_count += 1
+    prod_int = [int(i) for i in prod]
+    context = {'items': Product.objects.filter(id__in=prod_int), 'totalprice': _total_price(prod_int),
+               'itemcount': item_count}
+    return render(request, 'payment/confirmation.html', context)

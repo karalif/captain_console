@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Your order has been complete!</h2>
+    <h3>Thank you for shopping with Captain Console</h3>
+    <hr>
+    <h4>You can view your order here below: </h4>
+    <hr>
+    {% for item in items %}
+        <img class ="payment-img" src="{{item.itemimage_set.first.image}}"/>
+        <p><a href="/product/{{item.id}}" class="cart-items">{{item.name}} : </a>
+        <span class="price">{{item.price}} USD</span></p>
+    {% endfor %}
+    <hr>
+    <a href="/" class = "back-forth-btn">Go back to homepage</a>
+{% endblock %}
