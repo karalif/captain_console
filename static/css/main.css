@@ -12,11 +12,6 @@ html, body {
     font-family: 'Tahoma';
 }
 
-* {
-    box-sizing: border-box;
-    font-family: 'Tahoma';
-}
-
 h1, h2, h3, h4, h5, h6 {
     font-family: "Tahoma";
     font-weight: bold;
@@ -25,42 +20,56 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a{
-    color: forestgreen;
+    color: lightgrey;
 }
 
-.row {
-  display: -ms-flexbox; /* IE10 */
-  display: flex;
-  -ms-flex-wrap: wrap; /* IE10 */
-  flex-wrap: wrap;
-  margin: 0 -16px;
+.filternav {
+  overflow: hidden;
+  background-color: #333333;
 }
 
-.col-50 {
-    -ms-flex: 50%; /* IE10 */
-    flex: 50%;
-    padding: 0 16px;
+.filternav a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
-.container-billing {
-  background-color: #f2f2f2;
-  padding: 5px 20px 15px 20px;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
+.filternav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 15px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width:600px) {
+  .column {
+    width: 100%;
+  }
 }
 
 /* HEADER IMAGE */
 .header-img {
-    background: url(gameboy.png);
-    width: 100%;
+    background: url(gb_text.png);
+    width: 1850px;
     background-position: center;
     background-size: contain;
-    height: 410px;
-     background-repeat: no-repeat;
-
+    height: 380px;
+    background-repeat: no-repeat;
 }
 
-/* VEIT EINHVER HVAÐA VIRKNI ÞETTA ER? */
 .page-wrapper {
     min-height: 100%;
 }
@@ -73,6 +82,10 @@ a{
 .navbar{
     position: relative;
     overflow: hidden;
+}
+
+.navbar-default {
+    margin: 0;
 }
 
 .navbar-brand{
@@ -88,7 +101,7 @@ a{
     background-image: linear-gradient(to right, darkgreen, seagreen);
     animation: animate-navbar 3s linear infinite alternate;
 }
-
+/*
 @keyframes animate-navbar {
     0% {
         transform: rotate(0);
@@ -97,7 +110,7 @@ a{
         transform: rotateZ(180deg);
     }
 }
-
+*/
 @keyframes circle-around {
     0% {
         background-size: 0px 3px, 3px 0, 0 3px, 3px 0;
@@ -197,8 +210,6 @@ a{
     background-size: cover;
 }
 
-/* FOOTER */
-
 .text-input {
     padding: .7rem 1rem;
     display: block;
@@ -212,7 +223,7 @@ a{
 
 .btn {
     padding: .5rem 1rem;
-    background: darkseagreen;
+    background: grey;
     color: white;
     border: 1px solid transparent;
     border-radius: .25rem;
@@ -226,18 +237,32 @@ a{
 
 .btn:hover {
     color: white; !important;
-    background: darkgreen;
-}
-.footer {
     background: dimgrey;
-    color: white;
-    height: 350px;
+}
+
+.row .column {
+    width: 350px;
+    border: 5px solid black;
+    padding: 50px;
+    margin: 20px;
+    text-align: center;
+}
+
+.footer {
+    background: #333333;
+    color: lightgrey;
+    height: 400px;
     position: relative;
     bottom: -50px;
     font-size: 16px;
 }
 
+.footer .top-footer .location {
+    font-family: Tahoma;
+}
+
 .footer .top-footer {
+    font-family: Tahoma;
     height: 350px;
     display: flex;
 }
@@ -249,15 +274,16 @@ a{
 
 .footer .top-footer h1,
 .footer .top-footer h2 {
-    color: white;
+    color: #b3b3b3;
 }
 
 .footer .top-footer .about h1 span{
-    color: seagreen;
+    color: #8c8c8c;
     font-family: "Tahoma";
 }
 
 .footer .top-footer .about .contact-form span {
+    color: lightgrey;
     font-family: "Tahoma";
     margin-bottom: 8px;
 }
@@ -281,6 +307,7 @@ a{
 }
 
 .footer .top-footer .links ul a {
+    color: lightgrey;
     display: block;
     margin-bottom: 10px;
     font-size: 1.2em;
@@ -289,19 +316,19 @@ a{
 .footer .top-footer .links ul a:hover {
     margin-left: 15px;
     transition: all .3s;
+    color: white;
 }
 
 .footer .top-footer .contact-form contact-input {
     font-family: Tahoma;
     background: white;
-    color: black;
     margin-bottom: 10px;
     line-height: 1.5em;
     padding: .9rem 1.4rem;
 }
 
 .footer .top-footer .contact-form contact-input:focus {
-    background: black;
+    background: white;
 }
 
 .footer .top-footer .contact-form .contact-btn {
@@ -310,8 +337,8 @@ a{
 
 .footer .bottom-footer {
     font-family: Tahoma;
-    background: seagreen;
-    color: white;
+    background: #4d4d4d;
+    color: lightgrey;
     height: 50px;
     width: 100%;
     text-align: center;

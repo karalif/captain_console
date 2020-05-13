@@ -1,17 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h3 class="red">Hello from the index function within the game app</h3>
+<br>
 
 <div class="categories" id="product_categories" >
-        <li><a href="?type_filter=1">Gameboy</a></li>
-        <li><a href="?type_filter=2">Neo</a></li>
-        <li><a href="?type_filter=3">NES</a></li>
-        <li><a href="?type_filter=4">Sega</a></li>
-        <li><a href="?type_filter=5">TurboGrafix</a></li>
+    <h1>Flokkar</h1> <br>
+
+<div class="filternav">
+       <a href="?type_filter=1">Gameboy</a>
+        <a href="?type_filter=2">Neo</a>
+        <a href="?type_filter=3">NES</a>
+        <a href="?type_filter=4">Sega</a>
+        <a href="?type_filter=5">TurboGrafix</a>
 </div>
+
+</div>
+
 <div class="products">
     {% for product in products %}
         {% include 'product/single_game.html' with product=product %}
     {% endfor %}
 </div>
 {% endblock %}
+
+
