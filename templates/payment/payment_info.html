@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-billing">
+    <form action="/action_page.php">
+        <div class="row">
+            <div class="col-50">
+                <h3>Payment</h3>
+                <label>Accepted Cards</label>
+                <div class="icon-container">
+                    <i class="fa fa-cc-visa" style="color:navy;"></i>
+                    <i class="fa fa-cc-amex" style="color:blue;"></i>
+                    <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                    <i class="fa fa-cc-discover" style="color:orange;"></i>
+                </div>
+
+                <label for="cname">Name on Card</label>
+                <input type="text" id="cname" name="cardname" placeholder="Jón Jónsson">
+                <label for="ccnum">Credit card number</label>
+                <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+                <label for="expmonth">Exp Month</label>
+                <input type="text" id="expmonth" name="expmonth" placeholder="10">
+                <label for="expyear">Exp Year</label>
+                <input type="text" id="expyear" name="expyear" placeholder="2020">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" placeholder="555">
+              </div>
+            </div>
+
+            <div class="col-50">
+                <div class="container-billing">
+                    <h4 style="color:black">Items in Cart
+                        <span class="price" style="color:black">
+                            <i class="fa fa-shopping-cart"style="color:black"></i>
+                        </span>
+                        {{itemcount}}
+                    </h4>
+                    {% for item in items %}
+                        <p><a href="/product/{{item.id}}">{{item.name}}</a> <span class="price">{{item.price}}</span></p>
+                    {% endfor %}
+                    <hr>
+                    <h4 style="color:black">Total Price: {{totalprice}} USD</h4>
+                </div>
+            </div>
+            <div class="back-forth-btn">
+                <a href="/shopping_cart/" class = "btn btn-default">Go back to billing info</a>
+                <a href="#" class = "btn btn-default">Continue</a>
+            </div>
+        </div>
+    </form>
+</div>
