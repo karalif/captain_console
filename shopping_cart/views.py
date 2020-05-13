@@ -18,8 +18,6 @@ def my_cart(request):
 
 @login_required()
 def add_to_cart(request, id):
-    #if id in Cart.objects.filter(user_id):
-     #   pass
     cartitem = Cart(user_id=request.user.id, product_id=id)
     cartitem.save()
     print()
@@ -27,14 +25,19 @@ def add_to_cart(request, id):
         'product': get_object_or_404(Product, pk=id)
     })
 
-def _total_price(id_list):
+def _total_price(prodid_list):
     totalPrice = 0
-    for i in id_list:
+    for i in prodid_list:
         totalPrice += Product.objects.get(id=i).price
     return totalPrice
 
+
 @login_required()
 def delete_from_cart(request, id):
-    product = get_object_or_404(Product, pk=id)
-    product.delete()
-    return redirect('shopping_cart-my_cart')
+    for x in Cart.objects.filter(user_id=request.user.id):
+        if str(x) == str(id):
+            product = get_object_or_404(Cart, pk=x.id)
+            product.delete()
+
+    return my_cart(request)
+
