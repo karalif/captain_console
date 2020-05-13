@@ -2,15 +2,14 @@
 {% block content %}
     <h3 class="red">Hello from the index function within the console app</h3>
 
-
 <div class="categories" id="product_categories" >
-        <li><a href="{% url 'product-gameboy_index' %}">Gameboy</a></li>
-        <li><a href="{% url 'product-neo_index' %}">Neo</a></li>
-        <li><a href="{% url 'product-nes_index' %}">NES</a></li>
-        <li><a href="{% url 'product-sega_index' %}">Sega</a></li>
-        <li><a href="{% url 'product-turbografix_index' %}">TurboGrafix</a></li>
-
+        <li><a href="?type_filter=1">Gameboy</a></li>
+        <li><a href="?type_filter=2">Neo</a></li>
+        <li><a href="?type_filter=3">NES</a></li>
+        <li><a href="?type_filter=4">Sega</a></li>
+        <li><a href="?type_filter=5">TurboGrafix</a></li>
 </div>
+
 <div class="products">
     {% for product in products %}
         {% include 'product/single_console.html' with product=product %}

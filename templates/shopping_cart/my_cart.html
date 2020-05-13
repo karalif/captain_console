@@ -8,6 +8,6 @@
     {% endfor %}
 </div>
 <h3>Total Price: {{totalprice}} USD</h3>
-
+<a href="{% url 'payment-billing_address' %}" class = "btn btn-default">Proceed to payment</a>
 {% endblock %}
 

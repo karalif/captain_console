@@ -18,11 +18,21 @@ def my_cart(request):
 
 @login_required()
 def add_to_cart(request, id):
-    cartitem = Cart(user_id=request.user.id, product_id=id)
-    cartitem.save()
-    print()
+    prod = []
+    for x in Cart.objects.filter(user_id=request.user.id):
+        prod.append(str(x))
+    prod_int = [int(i) for i in prod]
+    if id in prod_int:
+        updated_quantity = Cart.objects.get(product_id = id).quantaty + 1
+        cartitem = Cart(user_id=request.user.id, product_id=id, quantity=updated_quantity)
+        cartitem.save()
+        print()
+    else:
+        cartitem = Cart(user_id=request.user.id, product_id=id, quantity=1)
+        cartitem.save()
+        print()
     return render(request, 'product/product_details.html', {
-        'product': get_object_or_404(Product, pk=id)
+            'product': get_object_or_404(Product, pk=id)
     })
 
 def _total_price(prodid_list):
@@ -30,7 +40,6 @@ def _total_price(prodid_list):
     for i in prodid_list:
         totalPrice += Product.objects.get(id=i).price
     return totalPrice
-
 
 @login_required()
 def delete_from_cart(request, id):

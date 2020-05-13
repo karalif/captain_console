@@ -6,7 +6,6 @@ from product.models import Product
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     product = models.ForeignKey(Product, on_delete=models.DO_NOTHING)
-  #  quantaty = models.IntField(blank = True)
+    quantity = models.DecimalField(max_digits=2, decimal_places = 0)
     def __str__(self):
         return str(self.product.id)
-

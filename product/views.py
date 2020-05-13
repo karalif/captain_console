@@ -5,46 +5,6 @@ from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 
 
-def home_index(request):
-    if 'search_filter' in request.GET:
-        search_filter = request.GET['search_filter']
-        products = [ {
-            'id': x.id,
-            'name': x.name,
-            'description': x.description,
-            'firstImage': x.productimage_set.first().image
-        } for x in Product.objects.filter(name__icontains=search_filter)]
-        return JsonResponse({'data': products})
-    context = {'products': Product.objects.all().order_by('name')}
-    return render(request, 'product/home_index.html', context)
-
-def get_games(request):
-    if 'search_filter' in request.GET:
-        search_filter = request.GET['search_filter']
-        products = [ {
-            'id': x.id,
-            'name': x.name,
-            'description': x.description,
-            'age_limit': x.age_limit,
-            'firstImage': x.productimage_set.first().image
-        } for x in Product.objects.filter(name__icontains=search_filter)]
-        return JsonResponse({'data': products})
-    context = {'products': Product.objects.filter(group_id=2).order_by('name')}
-    return render(request, 'product/game_index.html', context)
-
-def get_consoles(request):
-    if 'search_filter' in request.GET:
-        search_filter = request.GET['search_filter']
-        products = [ {
-            'id': x.id,
-            'name': x.name,
-            'description': x.description,
-            'firstImage': x.productimage_set.first().image
-        } for x in Product.objects.filter(name__icontains=search_filter)]
-        return JsonResponse({'data': products})
-    context = {'products': Product.objects.filter(group_id=1).order_by('name')}
-    return render(request, 'product/console_index.html', context)
-
 # /games/1
 
 def get_product_by_id(request, id):
@@ -89,66 +49,36 @@ def update_product(request, id):
         'id': id
     })
 
-def get_gameboy(request):
-    if 'search_filter' in request.GET:
-        search_filter = request.GET['search_filter']
-        products = [ {
-            'id': x.id,
-            'name': x.name,
-            'description': x.description,
-            'age_limit': x.age_limit,
-            'firstImage': x.productimage_set.first().image
-        } for x in Product.objects.filter(name__icontains=search_filter)]
-        return JsonResponse({'data': products})
-    context = {'products': Product.objects.filter(category_id=1).order_by('name')}
-    return render(request, 'product/gameboy_index.html', context)
 
-def get_neo(request):
-    if 'search_filter' in request.GET:
-        search_filter = request.GET['search_filter']
-        products = [ {
-            'id': x.id,
-            'name': x.name,
-            'description': x.description,
-            'age_limit': x.age_limit,
-            'firstImage': x.productimage_set.first().image
-        } for x in Product.objects.filter(name__icontains=search_filter)]
-        return JsonResponse({'data': products})
-    context = {'products': Product.objects.filter(category_id=2).order_by('name')}
-    return render(request, 'product/neo_index.html', context)
 
-def get_nes(request):
+#/products?type=
+def home_index(request):
+    if "type_filter" in request.GET:
+        print(request.GET["type_filter"])
+        context = {'products': Product.objects.filter(category_id=request.GET["type_filter"]).order_by("name")}
+        return render(request, 'product/game_index.html', context)
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
-        products = [ {
+        products = [{
             'id': x.id,
             'name': x.name,
             'description': x.description,
-            'age_limit': x.age_limit,
             'firstImage': x.productimage_set.first().image
         } for x in Product.objects.filter(name__icontains=search_filter)]
         return JsonResponse({'data': products})
-    context = {'products': Product.objects.filter(category_id=3).order_by('name')}
-    return render(request, 'product/nes_index.html', context)
+    context = {'products': Product.objects.all().order_by('name')}
+    return render(request, 'product/home_index.html', context)
 
-def get_sega(request):
-    if 'search_filter' in request.GET:
-        search_filter = request.GET['search_filter']
-        products = [ {
-            'id': x.id,
-            'name': x.name,
-            'description': x.description,
-            'age_limit': x.age_limit,
-            'firstImage': x.productimage_set.first().image
-        } for x in Product.objects.filter(name__icontains=search_filter)]
-        return JsonResponse({'data': products})
-    context = {'products': Product.objects.filter(category_id=4).order_by('name')}
-    return render(request, 'product/sega_index.html', context)
 
-def get_turbografix(request):
+#/products/games?type=
+def game_index(request):
+    if "type_filter" in request.GET:
+        print(request.GET["type_filter"])
+        context = {'products': Product.objects.filter(category_id=request.GET["type_filter"],group_id=2).order_by("name")}
+        return render(request, 'product/game_index.html', context)
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
-        products = [ {
+        products = [{
             'id': x.id,
             'name': x.name,
             'description': x.description,
@@ -156,5 +86,25 @@ def get_turbografix(request):
             'firstImage': x.productimage_set.first().image
         } for x in Product.objects.filter(name__icontains=search_filter)]
         return JsonResponse({'data': products})
-    context = {'products': Product.objects.filter(category_id=5).order_by('name')}
-    return render(request, 'product/turbografix_index.html', context)
+    context = {'products': Product.objects.all().order_by('name')}
+    return render(request, 'product/game_index.html', context)
+
+
+#/products/consoles?type=
+def console_index(request):
+    if "type_filter" in request.GET:
+        print(request.GET["type_filter"])
+        context = {'products': Product.objects.filter(category_id=request.GET["type_filter"], group_id=1).order_by("name")}
+        return render(request, 'product/console_index.html', context)
+    if 'search_filter' in request.GET:
+        search_filter = request.GET['search_filter']
+        products = [{
+            'id': x.id,
+            'name': x.name,
+            'description': x.description,
+            'age_limit': x.age_limit,
+            'firstImage': x.productimage_set.first().image
+        } for x in Product.objects.filter(name__icontains=search_filter)]
+        return JsonResponse({'data': products})
+    context = {'products': Product.objects.all().order_by('name')}
+    return render(request, 'product/console_index.html', context)

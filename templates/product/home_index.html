@@ -1,19 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-
-
-<main>
-</main>
-
 <div class="categories" id="product_categories" >
-        <li><a href="{% url 'product-gameboy_index' %}">Gameboy</a></li>
-        <li><a href="{% url 'product-neo_index' %}">Neo</a></li>
-        <li><a href="{% url 'product-nes_index' %}">NES</a></li>
-        <li><a href="{% url 'product-sega_index' %}">Sega</a></li>
-        <li><a href="{% url 'product-turbografix_index' %}">TurboGrafix</a></li>
-
+        <li><a href="?type_filter=1">Gameboy</a></li>
+        <li><a href="?type_filter=2">Neo</a></li>
+        <li><a href="?type_filter=3">NES</a></li>
+        <li><a href="?type_filter=4">Sega</a></li>
+        <li><a href="?type_filter=5">TurboGrafix</a></li>
 </div>
-
 <div class="products">
     {% for product in product %}
         {% include 'product/single_product.html' with product=product %}
