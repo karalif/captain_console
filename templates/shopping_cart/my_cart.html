@@ -1,13 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h2>Hello, you are in your cart!</h2>
-<div class="products">
+<div class="cart">
+    <h2 class="cart-heading">Hello, welcome to your cart!</h2>
+    <div class="products">
 
-    {% for item in items %}
-        {% include 'shopping_cart/cart_item.html' with cart_item=item %}
-    {% endfor %}
+        {% for item in items %}
+            {% include 'shopping_cart/cart_item.html' with cart_item=item %}
+        {% endfor %}
+    </div>
+    <div class="carttotal-container">
+        <span class="cart-total">Total Price: {{totalprice}} USD</span>
+        <a href="{% url 'payment-billing_address' %}" class="button buy-button">Buy products</a>
+    </div>
 </div>
-<h3>Total Price: {{totalprice}} USD</h3>
-<a href="{% url 'payment-billing_address' %}" class = "btn btn-default">Buy products</a>
+
 {% endblock %}
 

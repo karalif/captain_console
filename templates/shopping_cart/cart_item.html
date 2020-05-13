@@ -1,11 +1,9 @@
-<div class="well item">
-    <a href="/{{ cart_item.product.id }}">
-        <img class ="product-img" src="{{cart_item.product.productimage_set.first.image}}"/>
-    <h3>{{cart_item.product.name}}<h3/>
-    <h4>Price: {{cart_item.product.price}} USD<h4/>
-
+<div class="well item cart-item">
+    <a class="product-link" href="/products/{{ cart_item.product.id }}">
+        <img class="product-img" src="{{cart_item.product.productimage_set.first.image}}"/>
+        <span class="product-name">{{cart_item.product.name}}</span>
     </a>
-    <h5>Quantity: {{cart_item.quantity}}</h5>
-
-    <a href="{% url 'delete_from_cart' cart_item.product.id%}" class = "btn btn-default">Delete item from cart</a>
+    <span class="product-field">Price: {{cart_item.product.price}} USD</span>
+    <span class-="product-field">Quantity: {{cart_item.quantity}}</span>
+    <a href="{% url 'delete_from_cart' cart_item.product.id%}" class = "button delete-button">Delete item from cart</a>
 </div>

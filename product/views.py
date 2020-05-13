@@ -61,7 +61,7 @@ def home_index(request):
     if "type_filter" in request.GET:
         print(request.GET["type_filter"])
         context = {'products': Product.objects.filter(category_id=request.GET["type_filter"]).order_by("name")}
-        return render(request, 'product/game_index.html', context)
+        return render(request, 'product/product_index.html', context)
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
         products = [{
@@ -87,9 +87,10 @@ def game_index(request):
                 'products': Product.objects.filter(group_id=2).order_by('name')}
         else:
             context = {
-                'products': Product.objects.filter(category_id=type_filter, group_id=2).order_by("name")
+                'products': Product.objects.filter(category_id=type_filter, group_id=2).order_by("name"),
+                'title': 'Games'
             }
-        return render(request, 'product/game_index.html', context)
+        return render(request, 'product/product_index.html', context)
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
         products = [{
@@ -100,8 +101,8 @@ def game_index(request):
             'firstImage': x.productimage_set.first().image
         } for x in Product.objects.filter(name__icontains=search_filter)]
         return JsonResponse({'data': products})
-    context = {'products': Product.objects.filter(group_id=2).order_by('name')}
-    return render(request, 'product/game_index.html', context)
+    context = {'products': Product.objects.filter(group_id=2).order_by('name'), 'title': 'Games'}
+    return render(request, 'product/product_index.html', context)
 
 
 #/products/consoles?type=
@@ -116,8 +117,10 @@ def console_index(request):
                 'products': Product.objects.filter(group_id=1).order_by('name')}
         else:
             context = {
-                'products': Product.objects.filter(category_id=type_filter, group_id=1).order_by("name")}
-        return render(request, 'product/game_index.html', context)
+                'products': Product.objects.filter(category_id=type_filter, group_id=1).order_by("name"),
+                'title': 'Consoles'
+            }
+        return render(request, 'product/product_index.html', context)
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
         products = [{
@@ -128,5 +131,8 @@ def console_index(request):
             'firstImage': x.productimage_set.first().image
         } for x in Product.objects.filter(name__icontains=search_filter)]
         return JsonResponse({'data': products})
-    context = {'products': Product.objects.filter(group_id=1).order_by('name')}
-    return render(request, 'product/console_index.html', context)
+    context = {
+        'products': Product.objects.filter(group_id=1).order_by('name'),
+        'title': 'Consoles'
+    }
+    return render(request, 'product/product_index.html', context)

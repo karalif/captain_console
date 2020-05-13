@@ -1,0 +1,50 @@
+.button {
+    padding: 5px;
+    transition: opacity 0.5s;
+    opacity: 1;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.button:hover {
+    opacity: 0.5;
+    color: #fff;
+    text-decoration: none;
+}
+
+.delete-button {
+    background-color: #c70000;
+    color: #fff;
+}
+.buy-button {
+    background-color: #4BB543;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+
+.cart-item {
+    display: flex;
+    flex-direction: column;
+}
+.cart {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-heading {
+    margin: 20px 0;
+}
+
+.carttotal-container {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    margin-top: 20px;
+}
+
+.cart-total {
+    font-size: 20px;
+    font-weight: 700;
+}

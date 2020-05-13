@@ -2,7 +2,7 @@
 {% block content %}
 <br>
 <div>
-    <h1 class="Title">Games</h1>
+    <h1 class="Title">{{title}}</h1>
     <div class="group">
         <h5> Order by</h5>
         <a href="?type_filter=price">Price</a>
@@ -26,7 +26,7 @@
 
 <div class="products">
     {% for product in products %}
-        {% include 'product/single_game.html' with product=product %}
+        {% include 'product/single_product.html' with product=product %}
     {% endfor %}
 </div>
 {% endblock %}
