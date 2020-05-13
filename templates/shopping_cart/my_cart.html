@@ -4,7 +4,7 @@
 <div class="products">
 
     {% for item in items %}
-        {% include 'shopping_cart/cart_item.html' with product=item %}
+        {% include 'shopping_cart/cart_item.html' with cart_item=item %}
     {% endfor %}
 </div>
 <h3>Total Price: {{totalprice}} USD</h3>

@@ -9,12 +9,14 @@ from .models import Cart
 def my_cart(request):
     if request.method == 'GET':
         prod = []
-        for x in Cart.objects.filter(user_id = request.user.id):
-            prod.append(str(x))
-        prod_int = [int(i) for i in prod]
-        context = {'items': Product.objects.filter(id__in = prod_int), 'totalprice': _total_price(prod_int)}
-        return render(request,'shopping_cart/my_cart.html', context)
 
+        for x in Cart.objects.filter(user_id = request.user.id):
+            prod.append(x)
+
+        prod_ids = [p.product_id for p in prod]
+        context = {'items': prod, 'totalprice': _total_price(prod_ids, request.user.id)}
+
+        return render(request,'shopping_cart/my_cart.html', context)
 
 @login_required()
 def add_to_cart(request, id):
@@ -22,23 +24,21 @@ def add_to_cart(request, id):
     for x in Cart.objects.filter(user_id=request.user.id):
         prod.append(str(x))
     prod_int = [int(i) for i in prod]
-    if id in prod_int:
-        updated_quantity = Cart.objects.get(product_id = id).quantaty + 1
-        cartitem = Cart(user_id=request.user.id, product_id=id, quantity=updated_quantity)
-        cartitem.save()
-        print()
+    if id in prod_int and id == Cart.objects.get(user_id = request.user.id, product_id = id).product_id:
+        cartitem = Cart.objects.get(user_id = request.user.id, product_id = id)
+        cartitem.quantity += 1
     else:
         cartitem = Cart(user_id=request.user.id, product_id=id, quantity=1)
-        cartitem.save()
-        print()
+    cartitem.save()
+    print()
     return render(request, 'product/product_details.html', {
-            'product': get_object_or_404(Product, pk=id)
+            'product': get_object_or_404(Product, pk=id),
     })
 
-def _total_price(prodid_list):
+def _total_price(prodid_list, u_id):
     totalPrice = 0
     for i in prodid_list:
-        totalPrice += Product.objects.get(id=i).price
+        totalPrice += Product.objects.get(id=i).price * int(Cart.objects.get(user_id = u_id, product_id=i).quantity)
     return totalPrice
 
 @login_required()
