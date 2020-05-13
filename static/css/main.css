@@ -42,6 +42,8 @@ a{
   color: black;
 }
 
+
+
 .column {
   float: left;
   width: 33.33%;
@@ -348,3 +350,5 @@ a{
     padding-top: 20px;
     border: none;
 }
+
+
