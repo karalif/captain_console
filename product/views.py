@@ -91,7 +91,7 @@ def game_index(request):
             'firstImage': x.productimage_set.first().image
         } for x in Product.objects.filter(name__icontains=search_filter)]
         return JsonResponse({'data': products})
-    context = {'products': Product.objects.all().order_by('name')}
+    context = {'products': Product.objects.filter(group_id=2).order_by('name')}
     return render(request, 'product/game_index.html', context)
 
 
@@ -119,5 +119,5 @@ def console_index(request):
             'firstImage': x.productimage_set.first().image
         } for x in Product.objects.filter(name__icontains=search_filter)]
         return JsonResponse({'data': products})
-    context = {'products': Product.objects.all().order_by('name')}
+    context = {'products': Product.objects.filter(group_id=1).order_by('name')}
     return render(request, 'product/console_index.html', context)
