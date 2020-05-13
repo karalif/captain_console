@@ -7,34 +7,42 @@ from django.contrib.auth.decorators import login_required
 
 def get_product_by_id(request, id):
     return render(request, 'product/product_details.html', {
-        'product': get_object_or_404(Product, pk=id)
+        'product': get_object_or_404(Product, pk=id),
+        'is_superuser': request.user.is_superuser
     })
 
 
 @login_required
 def create_product(request):
+    if not request.user.is_superuser:
+        # Gaetud sett 404 sidu her og alstadar i svona
+        return redirect('/products')
     if request.method == 'POST':
         form = ProductCreateForm(data=request.POST)
         if form.is_valid():
             product = form.save()
             product_image = ProductImage(image = request.POST['image'], product=product)
             product_image.save()
-            return redirect('product-index')
+            return redirect('/products')
     else:
-        form = ProductCreateForm()
-    return render(request, '/create_product.html', {
+        form = ProductCreateForm(data=request.GET)
+    return render(request, 'product/create_product.html', {
         'form': form
     })
 
 @login_required
 def delete_product(request, id):
     product = get_object_or_404(Product, pk=id)
+    if not request.user.is_superuser:
+        return redirect('/products')
     product.delete()
-    return redirect('product-index')
+    return redirect('/products')
 
 @login_required
 def update_product(request, id):
     instance = get_object_or_404(Product, pk=id)
+    if not request.user.is_superuser:
+        return redirect('/products')
     if request.method == 'POST':
         form = ProductUpdateForm(data=request.POST,instance=instance)
         if form.is_valid():
@@ -79,7 +87,8 @@ def game_index(request):
                 'products': Product.objects.filter(group_id=2).order_by('name')}
         else:
             context = {
-                'products': Product.objects.filter(category_id=type_filter, group_id=2).order_by("name")}
+                'products': Product.objects.filter(category_id=type_filter, group_id=2).order_by("name")
+            }
         return render(request, 'product/game_index.html', context)
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']

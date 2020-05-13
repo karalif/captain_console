@@ -11,7 +11,7 @@ def billing_info(request):
         prod.append(str(x))
         item_count += 1
     prod_int = [int(i) for i in prod]
-    context = {'items': Product.objects.filter(id__in=prod_int), 'totalprice': _total_price(prod_int),
+    context = {'items': Product.objects.filter(id__in=prod_int), 'totalprice': _total_price(prod_int, request.user.id),
                'itemcount': item_count}
     return render(request, 'payment/billing_address.html', context)
 
