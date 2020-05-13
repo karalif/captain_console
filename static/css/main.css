@@ -46,6 +46,10 @@ a{
   overflow: hidden;
     height: 80px;
   width: 150px;
+<<<<<<< HEAD
+=======
+
+>>>>>>> dc44e4975549d4877dda08bdf3f2ad27570a9918
 }
 .group a {
     float: left;
@@ -54,7 +58,11 @@ a{
     text-align: center;
     padding: 8px 10px;
     text-decoration: none;
+<<<<<<< HEAD
     border-style: solid;
+=======
+    border-style: groove;
+>>>>>>> dc44e4975549d4877dda08bdf3f2ad27570a9918
     border-color: darkgrey;
 }
 .group a:hover {
@@ -62,6 +70,10 @@ a{
   color: black;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> dc44e4975549d4877dda08bdf3f2ad27570a9918
 .column {
   float: left;
   width: 33.33%;
@@ -369,6 +381,7 @@ a{
     border: none;
 }
 
+<<<<<<< HEAD
 .billing-row {
     display: -ms-flexbox; /* IE10 */
     display: flex;
@@ -435,3 +448,10 @@ label {
     width: 100px;
     height: 100px;
 }
+=======
+
+.Title{
+    text-align: center;
+}
+
+>>>>>>> dc44e4975549d4877dda08bdf3f2ad27570a9918

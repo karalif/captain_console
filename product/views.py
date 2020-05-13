@@ -5,8 +5,6 @@ from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 
 
-# /games/1
-
 def get_product_by_id(request, id):
     return render(request, 'product/product_details.html', {
         'product': get_object_or_404(Product, pk=id)
@@ -50,7 +48,6 @@ def update_product(request, id):
     })
 
 
-
 #/products?type=
 def home_index(request):
     if "type_filter" in request.GET:
@@ -73,8 +70,16 @@ def home_index(request):
 #/products/games?type=
 def game_index(request):
     if "type_filter" in request.GET:
-        print(request.GET["type_filter"])
-        context = {'products': Product.objects.filter(category_id=request.GET["type_filter"],group_id=2).order_by("name")}
+        type_filter=request.GET["type_filter"]
+        if type_filter=='price':
+            context = {
+                'products': Product.objects.filter(group_id=2).order_by('price')}
+        elif type_filter=='name':
+            context = {
+                'products': Product.objects.filter(group_id=2).order_by('name')}
+        else:
+            context = {
+                'products': Product.objects.filter(category_id=type_filter, group_id=2).order_by("name")}
         return render(request, 'product/game_index.html', context)
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
@@ -93,9 +98,17 @@ def game_index(request):
 #/products/consoles?type=
 def console_index(request):
     if "type_filter" in request.GET:
-        print(request.GET["type_filter"])
-        context = {'products': Product.objects.filter(category_id=request.GET["type_filter"], group_id=1).order_by("name")}
-        return render(request, 'product/console_index.html', context)
+        type_filter=request.GET["type_filter"]
+        if type_filter=='price':
+            context = {
+                'products': Product.objects.filter(group_id=1).order_by('price')}
+        elif type_filter=='name':
+            context = {
+                'products': Product.objects.filter(group_id=1).order_by('name')}
+        else:
+            context = {
+                'products': Product.objects.filter(category_id=type_filter, group_id=1).order_by("name")}
+        return render(request, 'product/game_index.html', context)
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
         products = [{

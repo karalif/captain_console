@@ -1,12 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
 <br>
+<div>
+    <h1 class="Title">Games</h1>
+    <div class="group">
+        <h5> Order by</h5>
+        <a href="?type_filter=price">Price</a>
+        <a href="?type_filter=name">Name</a>
+    </div>
 
-<div class="categories" id="product_categories" >
-    <h1>Flokkar</h1> <br>
+
+</div>
+
+<div class="categories" id="product_categories" ><br>
 
 <div class="filternav">
-       <a href="?type_filter=1">Gameboy</a>
+        <a href="?type_filter=1">Gameboy</a>
         <a href="?type_filter=2">Neo</a>
         <a href="?type_filter=3">NES</a>
         <a href="?type_filter=4">Sega</a>
