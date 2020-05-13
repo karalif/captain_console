@@ -46,11 +46,8 @@ a{
   overflow: hidden;
     height: 80px;
   width: 150px;
-<<<<<<< HEAD
-=======
-
->>>>>>> dc44e4975549d4877dda08bdf3f2ad27570a9918
 }
+
 .group a {
     float: left;
     display: block;
@@ -58,22 +55,16 @@ a{
     text-align: center;
     padding: 8px 10px;
     text-decoration: none;
-<<<<<<< HEAD
     border-style: solid;
-=======
     border-style: groove;
->>>>>>> dc44e4975549d4877dda08bdf3f2ad27570a9918
     border-color: darkgrey;
 }
+
 .group a:hover {
   background-color: #ddd;
   color: black;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> dc44e4975549d4877dda08bdf3f2ad27570a9918
 .column {
   float: left;
   width: 33.33%;
@@ -133,16 +124,7 @@ a{
     background-image: linear-gradient(to right, darkgreen, seagreen);
     animation: animate-navbar 3s linear infinite alternate;
 }
-/*
-@keyframes animate-navbar {
-    0% {
-        transform: rotate(0);
-    }
-    100% {
-        transform: rotateZ(180deg);
-    }
-}
-*/
+
 @keyframes circle-around {
     0% {
         background-size: 0px 3px, 3px 0, 0 3px, 3px 0;
@@ -160,7 +142,6 @@ a{
         background-size: 100% 3px, 3px 100%, 100% 3px, 3px 100%;
     }
 }
-
 
 .games {
     display: grid;
@@ -188,6 +169,7 @@ a{
     animation: circle-around;
     cursor: pointer;
 }
+
 .games .game:hover .game-img {
     transform: perspective(400px) scale(1.1) rotateY(15deg);
 }
@@ -274,7 +256,6 @@ a{
 
 .row .column {
     width: 350px;
-    border: 5px solid black;
     padding: 50px;
     margin: 20px;
     text-align: center;
@@ -381,7 +362,6 @@ a{
     border: none;
 }
 
-<<<<<<< HEAD
 .billing-row {
     display: -ms-flexbox; /* IE10 */
     display: flex;
@@ -448,10 +428,8 @@ label {
     width: 100px;
     height: 100px;
 }
-=======
 
-.Title{
+.title{
     text-align: center;
 }
 
->>>>>>> dc44e4975549d4877dda08bdf3f2ad27570a9918
