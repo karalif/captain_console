@@ -1,34 +1,43 @@
 {% extends 'base.html' %}
 {% block content %}
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-<div class="header-img"></div>
-<div class="filternav">
+
+    <div class="header-img"></div>
+
+    <div class="filternav">
         <a href="/products" class="type_filter">Start shopping</a>
-</div>
-    <div>
-        <h1 class="home_title">Check out our new products!</h1>
-    <div/>
-<div class="products">
-    {% for product in products %}
-        {% include 'product/single_product.html' with product=product %}
-    {% endfor %}
-</div>
-<div class="home-bullets">
-  <div class="bullet">
-      <i class="fa fa-couch" style="font-size:40px;color:red;"></i><br><br>
-      <h4> Free shipping</h4> <br>
-      <p>If you live in the city area then we ship your order to you free of charge.</p><br><br>
-  </div>
-  <div class="bullet">
-       <i class="fa fa-car" style="font-size:40px;color:red;"></i><br><br>
-       <h4>Delivery charge</h4> <br>
-       <p>If you live outside the city area then you will be charged 800 kr. and the order will arrive at your door within 2-3 working days.</p>
     </div>
-  <div class="bullet">
-      <i class="fa fa-smile" style="font-size:40px;color:red;"></i><br><br>
-      <h4>Something for everybody</h4> <br>
-      <p>Our selection is growing every day and everybody should find something of their liking.</p><br>
-  </div>
+
+    <div>
+        <h1 class="home_title">Bestsellers</h1>
+    <div/>
+
+    <div class="products">
+        {% for product in products %}
+            {% include 'product/single_product.html' with product=product %}
+        {% endfor %}
+    </div>
+
+    <div class="home-bullets">
+        <div class="bullet">
+            <i class="fa fa-couch" style="font-size:40px;color:red;"></i><br>
+            <h4> Free shipping</h4> <br>
+            <p>If you live in the city area then we ship your order to you free of charge.</p><br><br>
+        </div>
+
+        <div class="bullet">
+            <i class="fa fa-car" style="font-size:40px;color:red;"></i><br>
+            <h4>Delivery charge</h4> <br>
+            <p>If you live outside the city area then you will be charged 800 kr. and the order will arrive at your door within 2-3 working days.</p>
+        </div>
+
+        <div class="bullet">
+            <i class="fa fa-smile" style="font-size:40px;color:red;"></i><br>
+            <h4>Something for everybody</h4> <br>
+            <p>Our selection is growing every day and everybody should find something of their liking.</p><br>
+        </div>
 </div>
+
 {% endblock %}

@@ -1,9 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>Profile</h1>
-    <form class="form form-horizontal" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" class="btn btn-primary" value="Update"/>
-    </form>
+
+<div class="well user">
+    <div>
+        <img class="user-img" src="{{user.profile_image}}"/>
+
+    </div>
+        <h2> {{user.name}}</h2>
+    <br>
+        <h4> {{user.birth_date}}</h4>
+    <br>
+        <h4><i class="fa fa-address-card-o"></i> {{user.address}}</h4>
+    <br>
+        <h4><i class="fa fa-institution"></i> {{user.zip_code}}</h4>
+    <br>
+        <h4><i class="fa fa-institution"></i> {{user.city}}</h4>
+    <br>
+        <h4><i class="fa fa-institution"></i> {{user.country}}</h4>
+</div>
+
+
+<a class="button edit-profile" href="{% url 'edit_profile' %}">Edit profile</a>
+
 {% endblock %}
+

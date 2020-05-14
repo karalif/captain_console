@@ -12,8 +12,7 @@ def register(request):
     return render(request, 'user/register.html',{
         'form': UserCreationForm()
     })
-def profile(request):
-
+def edit_profile(request):
     profile =Profile.objects.filter(user=request.user).first()
     if request.method == 'POST':
         form = ProfileForm(instance=profile, data=request.POST)
@@ -23,6 +22,13 @@ def profile(request):
             profile.save()
             return redirect('profile')
 
-    return render(request, 'user/profile.html',{
+    return render(request, 'user/edit_profile.html',{
         'form': ProfileForm(instance=profile)
  })
+
+def profile(request):
+    profile =Profile.objects.filter(user=request.user).first()
+    print(profile)
+    context={'user': Profile.objects.filter(user=request.user).first() }
+    return render(request,'user/profile.html',context)
+
