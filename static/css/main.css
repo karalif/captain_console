@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .edit-profile {
     background-color: #4BB543;
     color: #fff;
@@ -12,6 +13,8 @@
     height: 120px;
     length: 120px;
 }
+=======
+>>>>>>> 26a626900ae74b47a958d9699a9c5d02514c5bab
 
 html, body {
     height: 100%;
@@ -36,6 +39,10 @@ h1, h2, h3, h4, h5, h6 {
 
 a{
     color: lightgrey;
+}
+
+.group_title {
+    text-align: center;
 }
 
 .filternav {
@@ -369,7 +376,11 @@ label {
     .home-bullets {
         grid-template-columns: 1fr;
     }
+<<<<<<< HEAD
 }
 
 
 
+=======
+}
+>>>>>>> 26a626900ae74b47a958d9699a9c5d02514c5bab
