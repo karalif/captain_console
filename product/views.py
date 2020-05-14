@@ -1,13 +1,38 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from product.models import Product, ProductImage
+from product.models import Product, ProductImage, ReviewedItems
 from product.forms.product_form import ProductCreateForm, ProductUpdateForm
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
+
 def get_product_by_id(request, id):
-    return render(request, 'product/product_details.html', {
+    id_list = []
+    for x in ReviewedItems.objects.filter(user_id=request.user.id):
+        id_list.append(x.id)
+        if id == x.product_id:
+            product = get_object_or_404(ReviewedItems, pk=x.id)
+            product.delete()
+
+    if len(ReviewedItems.objects.filter(user_id=request.user.id)) == 5:
+        min_id = min(id_list)
+        product = get_object_or_404(ReviewedItems, pk=min_id)
+        product.delete()
+
+    add_reviewed_item(request, id)
+    prod = []
+    for x in ReviewedItems.objects.filter(user_id=request.user.id):
+        prod.append(x)
+    context = {
         'product': get_object_or_404(Product, pk=id),
-        'is_superuser': request.user.is_superuser
-    })
+        'is_superuser': request.user.is_superuser,
+        'reviewedItems': prod
+    }
+    return render(request, 'product/product_details.html', context)
+
+@login_required
+def add_reviewed_item(request,id):
+    reviewed_item = ReviewedItems(user_id=request.user.id, product_id=id)
+    reviewed_item.save()
+
 @login_required
 def create_product(request):
     if not request.user.is_superuser:
@@ -25,6 +50,7 @@ def create_product(request):
     return render(request, 'product/create_product.html', {
         'form': form
     })
+
 @login_required
 def delete_product(request, id):
     product = get_object_or_404(Product, pk=id)
@@ -32,6 +58,8 @@ def delete_product(request, id):
         return redirect('/products')
     product.delete()
     return redirect('/products')
+
+
 @login_required
 def update_product(request, id):
     instance = get_object_or_404(Product, pk=id)
@@ -48,24 +76,36 @@ def update_product(request, id):
         'form': form,
         'id': id
     })
+
 #/products?type=
 def home_index(request):
-    if "type_filter" in request.GET:
-        print(request.GET["type_filter"])
-        context = {'products': Product.objects.filter(category_id=request.GET["type_filter"]).order_by("name")}
-        return render(request, 'product/home_index.html', context)
-    if 'search_filter' in request.GET:
-        search_filter = request.GET['search_filter']
-        products = [{
-            'id': x.id,
-            'name': x.name,
-            'description': x.description,
-            'firstImage': x.productimage_set.first().image
-        } for x in Product.objects.filter(name__icontains=search_filter)]
-        return JsonResponse({'data': products})
-    la = [1, 2, 8, 9, 10, 12]
-    context = {'products': Product.objects.filter(id__in=la)}
+    new_prod_id = [1, 2, 8, 9, 10, 12]
+    context = {'products': Product.objects.filter(id__in=new_prod_id)}
     return render(request, 'product/home_index.html', context)
+
+def index(request):
+    if "type_filter" in request.GET:
+        type_filter = request.GET["type_filter"]
+        if type_filter == 'price_high':
+            context = {
+                'products': Product.objects.all().order_by('price'),
+                }
+        elif type_filter == 'price_low':
+            context = {
+                'products': Product.objects.all().order_by('-price'),
+                }
+        elif type_filter=='name':
+            context = {
+                'products': Product.objects.all().order_by('name'),
+                }
+        else:
+            context = {
+                'products': Product.objects.filter(category_id=type_filter).order_by("name"),
+            }
+        return render(request, 'product/product_index.html', context)
+    context={'products': Product.objects.all()}
+    return render(request, 'product/index.html', context)
+
 
 #/products/games?type=
 def game_index(request):
@@ -93,8 +133,9 @@ def game_index(request):
             'name': x.name,
             'description': x.description,
             'age_limit': x.age_limit,
+            'price': x.price,
             'firstImage': x.productimage_set.first().image
-        } for x in Product.objects.filter(name__icontains=search_filter)]
+        } for x in Product.objects.filter(name__icontains=search_filter,group_id=2)]
         return JsonResponse({'data': products})
     context = {'products': Product.objects.filter(group_id=2).order_by('name'), 'title': 'Games'}
     return render(request, 'product/product_index.html', context)
@@ -122,10 +163,9 @@ def console_index(request):
         products = [{
             'id': x.id,
             'name': x.name,
-            'description': x.description,
-            'age_limit': x.age_limit,
+            'price': x.price,
             'firstImage': x.productimage_set.first().image
-        } for x in Product.objects.filter(name__icontains=search_filter)]
+        } for x in Product.objects.filter(name__icontains=search_filter,group_id=1)]
         return JsonResponse({'data': products})
     context = {
         'products': Product.objects.filter(group_id=1).order_by('name'),

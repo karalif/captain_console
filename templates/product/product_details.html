@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-
     <h1 class="product-name">{{ product.name }}</h1>
     <p class="product-description">{{ product.description}}</p>
 <div class="product-info">
@@ -16,4 +15,8 @@
     {% endif %}
     <a href="{% url 'add_to_cart' product.id %}" class = "button add-button">Add to cart</a>
 
+    <h3>Your recently reviewed products</h3>
+    {% for item in reviewedItems %}
+        {% include 'product/reviewed_items.html' with rev_item=item %}
+    {% endfor %}
 {% endblock %}

@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-<br>
 <div class="title-base ">
-    <h1 class="Title">{{title}}</h1>
+    <h1 class="group_title">All products</h1>
     <div class="sort_by" style="float:right;">
         <button class="sort_btn">Sort by </button>
           <div class="sort_content">
@@ -12,19 +11,6 @@
           </div>
     </div>
 </div>
-{% if title == "Games" %}
-    <div class="form-group">
-        <input autocomplete="on" type="search" class="form-control" id="search-box_game" placeholder="Search...">
-    </div>
-        <button type="button" id="search-btn_game" class="btn btn-default">Search</button>
-{% endif %}
-{% if title == "Consoles" %}
-    <div class="form-group">
-        <input autocomplete="on" type="search" class="form-control" id="search-box_console" placeholder="Search...">
-    </div>
-        <button type="button" id="search-btn_console" class="btn btn-default">Search</button>
-{% endif %}
-<br><br><br>
 <div class="categories" id="product_categories" ><br>
 <div class="filternav">
         <a href="?type_filter=1" class="game_type_filter">Gameboy</a>
