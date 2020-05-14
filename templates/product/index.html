@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="title-base ">
+    <br>
     <h1 class="group_title">All products</h1>
     <div class="sort_by" style="float:right;">
         <button class="sort_btn">Sort by </button>
@@ -11,6 +12,9 @@
           </div>
     </div>
 </div>
+
+<br><br>
+
 <div class="categories" id="product_categories" ><br>
 <div class="filternav">
         <a href="?type_filter=1" class="game_type_filter">Gameboy</a>
@@ -26,4 +30,3 @@
     {% endfor %}
 </div>
 {% endblock %}
-
