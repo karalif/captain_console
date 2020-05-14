@@ -79,7 +79,7 @@ def update_product(request, id):
 
 #/products?type=
 def home_index(request):
-    new_prod_id = [1, 2, 8, 9, 10, 12]
+    new_prod_id = [1, 2, 5, 7, 8, 9, 10, 12]
     context = {'products': Product.objects.filter(id__in=new_prod_id)}
     return render(request, 'product/home_index.html', context)
 
