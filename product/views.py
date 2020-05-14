@@ -3,15 +3,11 @@ from product.models import Product, ProductImage
 from product.forms.product_form import ProductCreateForm, ProductUpdateForm
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
-
-
 def get_product_by_id(request, id):
     return render(request, 'product/product_details.html', {
         'product': get_object_or_404(Product, pk=id),
         'is_superuser': request.user.is_superuser
     })
-
-
 @login_required
 def create_product(request):
     if not request.user.is_superuser:
@@ -29,7 +25,6 @@ def create_product(request):
     return render(request, 'product/create_product.html', {
         'form': form
     })
-
 @login_required
 def delete_product(request, id):
     product = get_object_or_404(Product, pk=id)
@@ -37,7 +32,6 @@ def delete_product(request, id):
         return redirect('/products')
     product.delete()
     return redirect('/products')
-
 @login_required
 def update_product(request, id):
     instance = get_object_or_404(Product, pk=id)
@@ -54,8 +48,6 @@ def update_product(request, id):
         'form': form,
         'id': id
     })
-
-
 #/products?type=
 def home_index(request):
     if "type_filter" in request.GET:
@@ -71,15 +63,16 @@ def home_index(request):
             'firstImage': x.productimage_set.first().image
         } for x in Product.objects.filter(name__icontains=search_filter)]
         return JsonResponse({'data': products})
-    context = {'products': Product.objects.all().order_by('name')}
+    context = {'products': Product.objects.filter().order_by('name')}
     return render(request, 'product/home_index.html', context)
-
-
 #/products/games?type=
 def game_index(request):
     if "type_filter" in request.GET:
-        type_filter=request.GET["type_filter"]
-        if type_filter=='price':
+        type_filter = request.GET["type_filter"]
+        if type_filter == 'price_high':
+            context = {
+                'products': Product.objects.filter(group_id=2).order_by('price')}
+        elif type_filter == 'price_low':
             context = {
                 'products': Product.objects.filter(group_id=2).order_by('-price')}
         elif type_filter=='name':
@@ -103,15 +96,16 @@ def game_index(request):
         return JsonResponse({'data': products})
     context = {'products': Product.objects.filter(group_id=2).order_by('name'), 'title': 'Games'}
     return render(request, 'product/product_index.html', context)
-
-
 #/products/consoles?type=
 def console_index(request):
     if "type_filter" in request.GET:
         type_filter=request.GET["type_filter"]
-        if type_filter=='price':
+        if type_filter=='price_low':
             context = {
                 'products': Product.objects.filter(group_id=1).order_by('price')}
+            if type_filter == 'price_high':
+                context = {
+                    'products': Product.objects.filter(group_id=1).order_by('-price')}
         elif type_filter=='name':
             context = {
                 'products': Product.objects.filter(group_id=1).order_by('name')}

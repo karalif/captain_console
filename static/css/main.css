@@ -51,29 +51,6 @@ a{
     width: 20%;
 }
 
-.group {
-  overflow: hidden;
-    height: 80px;
-  width: 150px;
-}
-
-.group a {
-    float: left;
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 8px 10px;
-    text-decoration: none;
-    border-style: solid;
-    border-style: groove;
-    border-color: darkgrey;
-}
-
-.group a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
 .column {
   float: left;
   width: 33.33%;
