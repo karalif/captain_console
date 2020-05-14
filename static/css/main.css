@@ -1,3 +1,17 @@
+.edit-profile {
+    background-color: #4BB543;
+    color: #fff;
+    padding: 10px;
+    text-align: center
+}
+.user{
+    width:50%
+}
+
+.user-img{
+    height: 120px;
+    length: 120px;
+}
 
 html, body {
     height: 100%;
@@ -255,16 +269,16 @@ a{
 }
 .container-billing{
     background-color: #f2f2f2;
-  padding: 5px 20px 15px 20px;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
 }
 
 .container-payment{
     background-color: #f2f2f2;
-  padding: 5px 20px 15px 20px;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
 }
 
 .col-50 {

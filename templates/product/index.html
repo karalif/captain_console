@@ -1,32 +1,34 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="title-base ">
-    <br>
+
+<div class="title-base "> <br>
     <h1 class="group_title">All products</h1>
     <div class="sort_by" style="float:right;">
         <button class="sort_btn">Sort by </button>
-          <div class="sort_content">
-              <a href="?type_filter=name">Name</a>
-              <a href="?type_filter=price_high">Price: lowest first</a>
-              <a href="?type_filter=price_low">Price: highest first</a>
-          </div>
+        <div class="sort_content">
+            <a href="?type_filter=name">Name</a>
+            <a href="?type_filter=price_high">Price: lowest first</a>
+            <a href="?type_filter=price_low">Price: highest first</a>
+        </div>
     </div>
 </div>
 
 <br><br>
 
 <div class="categories" id="product_categories" ><br>
-<div class="filternav">
+    <div class="filternav">
         <a href="?type_filter=1" class="game_type_filter">Gameboy</a>
         <a href="?type_filter=2" class="game_type_filter">Neo</a>
         <a href="?type_filter=3" class="game_type_filter">NES</a>
         <a href="?type_filter=4" class="game_type_filter">Sega</a>
         <a href="?type_filter=5" class="game_type_filter">TurboGrafix</a>
+    </div>
 </div>
-</div>
+
 <div class="products">
     {% for product in products %}
         {% include 'product/single_product.html' with product=product %}
     {% endfor %}
 </div>
+
 {% endblock %}
