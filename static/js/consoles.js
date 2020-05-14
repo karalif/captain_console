@@ -4,12 +4,12 @@ $(document).ready(function () {
         e.preventDefault();
         var searchText= $('#search-box').val();
             $.ajax({
-                url:'/product?search_filter=' + searchText,
+                url:'/consoles?search_filter=' + searchText,
                 type: 'GET',
                 success: function(resp){
                 var newHtml = resp.data.map(d =>{
-                    return `<div class="well console">a
-                            <a href="/consoles/${d.id}">
+                    return `<div class="well console">
+                            <a href="/products/${d.id}">
                                 <img class="product-img" src="${d.firstImage}"/>
                                 <h4>${d.name}</h4>
                                 <p>${d.description}</p>

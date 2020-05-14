@@ -3,16 +3,22 @@
 <div class="cart">
     <h2 class="cart-heading">Hello, welcome to your cart!</h2>
     <div class="products">
-
-        {% for item in items %}
-            {% include 'shopping_cart/cart_item.html' with cart_item=item %}
-        {% endfor %}
+        {% if not items%}
+            <p>Your cart is empty.</p>
+        {% else %}
+            {% for item in items %}
+                {% include 'shopping_cart/cart_item.html' with cart_item=item %}
+            {% endfor %}
+        {% endif %}
     </div>
     <div class="carttotal-container">
-        <span class="cart-total">Total Price: {{totalprice}} USD</span>
-        <a href="{% url 'payment-billing_address' %}" class="button buy-button">Buy products</a>
+        {% if not items%}
+            <a href="/" class="button buy-button">Start shopping</a>
+        {% else %}
+            <span class="cart-total">Total Price: {{totalprice}} USD</span>
+            <a href="{% url 'payment-billing_address' %}" class="button buy-button">Buy products</a>
+        {% endif %}
     </div>
 </div>
-
 {% endblock %}
 

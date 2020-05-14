@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h2>Your order has been complete!</h2>
-    <h3>Thank you for shopping with Captain Console</h3>
+    <br>
+    <h1>Your order has been complete!</h1>
+    <br>
+    <h2>Thank you for shopping with Captain Console</h2>
     <hr>
     <h4>You can view your order here below: </h4>
-    <hr>
+    <br>
     {% for item in items %}
         <img class ="payment-img" src="{{item.itemimage_set.first.image}}"/>
         <p><a href="/product/{{item.id}}" class="cart-items">{{item.name}} : </a>

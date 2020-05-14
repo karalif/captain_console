@@ -9,13 +9,10 @@ from .models import Cart
 def my_cart(request):
     if request.method == 'GET':
         prod = []
-
         for x in Cart.objects.filter(user_id = request.user.id):
             prod.append(x)
-
         prod_ids = [p.product_id for p in prod]
         context = {'items': prod, 'totalprice': _total_price(prod_ids, request.user.id)}
-
         return render(request,'shopping_cart/my_cart.html', context)
 
 @login_required()
@@ -39,6 +36,7 @@ def _total_price(prodid_list, u_id):
     totalPrice = 0
     for i in prodid_list:
         totalPrice += Product.objects.get(id=i).price * int(Cart.objects.get(user_id = u_id, product_id=i).quantity)
+    totalPrice = round(totalPrice, 2)
     return totalPrice
 
 @login_required()

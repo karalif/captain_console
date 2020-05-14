@@ -81,7 +81,7 @@ def game_index(request):
         type_filter=request.GET["type_filter"]
         if type_filter=='price':
             context = {
-                'products': Product.objects.filter(group_id=2).order_by('price')}
+                'products': Product.objects.filter(group_id=2).order_by('-price')}
         elif type_filter=='name':
             context = {
                 'products': Product.objects.filter(group_id=2).order_by('name')}
