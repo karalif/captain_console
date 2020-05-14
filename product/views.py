@@ -71,17 +71,21 @@ def home_index(request):
             'firstImage': x.productimage_set.first().image
         } for x in Product.objects.filter(name__icontains=search_filter)]
         return JsonResponse({'data': products})
-    context = {'products': Product.objects.all().order_by('name')}
+
+    context = {'products': Product.objects.filter().order_by('name')}
     return render(request, 'product/home_index.html', context)
 
 
 #/products/games?type=
 def game_index(request):
     if "type_filter" in request.GET:
-        type_filter=request.GET["type_filter"]
-        if type_filter=='price':
+        type_filter = request.GET["type_filter"]
+        if type_filter == 'price_high':
             context = {
                 'products': Product.objects.filter(group_id=2).order_by('price')}
+        elif type_filter == 'price_low':
+            context = {
+                'products': Product.objects.filter(group_id=2).order_by('-price')}
         elif type_filter=='name':
             context = {
                 'products': Product.objects.filter(group_id=2).order_by('name')}
@@ -109,9 +113,12 @@ def game_index(request):
 def console_index(request):
     if "type_filter" in request.GET:
         type_filter=request.GET["type_filter"]
-        if type_filter=='price':
+        if type_filter=='price_low':
             context = {
                 'products': Product.objects.filter(group_id=1).order_by('price')}
+            if type_filter == 'price_high':
+                context = {
+                    'products': Product.objects.filter(group_id=1).order_by('-price')}
         elif type_filter=='name':
             context = {
                 'products': Product.objects.filter(group_id=1).order_by('name')}
