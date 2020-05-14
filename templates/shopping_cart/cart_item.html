@@ -3,7 +3,7 @@
         <img class="product-img" src="{{cart_item.product.productimage_set.first.image}}"/>
         <span class="product-name">{{cart_item.product.name}}</span>
     </a>
-    <span class="product-field">Price: {{cart_item.product.price}} USD</span>
-    <span class-="product-field">Quantity: {{cart_item.quantity}}</span>
+    <span class="product-field"><strong>Price:</strong> {{cart_item.product.price}} USD</span>
+    <span class-="product-field"><strong>Quantity:</strong> {{cart_item.quantity}}</span>
     <a href="{% url 'delete_from_cart' cart_item.product.id%}" class = "button delete-button">Delete item from cart</a>
 </div>

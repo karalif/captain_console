@@ -1,3 +1,4 @@
+
 .sort_by {
     position: relative;
     display: inline-block;
@@ -95,4 +96,25 @@
     .products {
         grid-template-columns: 1fr;
     }
+}
+
+.add-button {
+    background-color: #4BB543;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    margin-top: 20px;
+
+.product-description {
+    margin-top: 20px;
+
+}
+
+.product-info {
+    margin-bottom: 10px;
 }

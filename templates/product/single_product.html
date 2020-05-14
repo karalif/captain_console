@@ -4,9 +4,9 @@
         <img class="product-img" src="{{product.productimage_set.first.image}}"/>
         <span class="product-name">{{product.name}}</span>
     </a>
-    <span class="product-field">Price: {{product.price}} USD</span>
+    <span class="product-field"><strong>Price:</strong> {{product.price}} USD</span>
     {% if product.age_limit != "" %}
-        <span class="product-field">Age Limit: {{product.age_limit}} years</span>
+    <span class="product-field"><strong>Age Limit:</strong> {{product.age_limit}} years</span>
     {% endif %}
 </div>
 {% endblock %}

@@ -11,6 +11,16 @@
         <a href="consoles"class="type_filter">Consoles</a>
 </div>
 
+    <div>
+        <h1 class="home_title">Check out our new products!</h1>
+    <div/>
+
+<div class="products">
+    {% for product in products %}
+        {% include 'product/single_product.html' with product=product %}
+    {% endfor %}
+</div>
+
 
 <div class="home-bullets">
   <div class="bullet">
@@ -32,10 +42,5 @@
   </div>
 </div>
 
-<!--
-<div class="products">
-    {% for product in product %}
-        {% include 'product/single_product.html' with product=product %}
-    {% endfor %}
-</div> -->
+
 {% endblock %}

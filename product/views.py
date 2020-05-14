@@ -53,7 +53,7 @@ def home_index(request):
     if "type_filter" in request.GET:
         print(request.GET["type_filter"])
         context = {'products': Product.objects.filter(category_id=request.GET["type_filter"]).order_by("name")}
-        return render(request, 'product/product_index.html', context)
+        return render(request, 'product/home_index.html', context)
     if 'search_filter' in request.GET:
         search_filter = request.GET['search_filter']
         products = [{
@@ -63,8 +63,10 @@ def home_index(request):
             'firstImage': x.productimage_set.first().image
         } for x in Product.objects.filter(name__icontains=search_filter)]
         return JsonResponse({'data': products})
-    context = {'products': Product.objects.filter().order_by('name')}
+    la = [1, 2, 8, 9, 10, 12]
+    context = {'products': Product.objects.filter(id__in=la)}
     return render(request, 'product/home_index.html', context)
+
 #/products/games?type=
 def game_index(request):
     if "type_filter" in request.GET:
