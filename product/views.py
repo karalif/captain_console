@@ -85,6 +85,7 @@ def home_index(request):
 
 def index(request):
     if "type_filter" in request.GET:
+
         type_filter = request.GET["type_filter"]
         if type_filter == 'price_high':
             context = {
@@ -101,6 +102,7 @@ def index(request):
         else:
             context = {
                 'products': Product.objects.filter(category_id=type_filter).order_by("name"),
+                'category': True
             }
         return render(request, 'product/product_index.html', context)
     context={'products': Product.objects.all()}
@@ -123,7 +125,9 @@ def game_index(request):
         else:
             context = {
                 'products': Product.objects.filter(category_id=type_filter, group_id=2).order_by("name"),
-                'title': 'Games'
+                'title': 'Games',
+                'category': True
+
             }
         return render(request, 'product/product_index.html', context)
     if 'search_filter' in request.GET:
@@ -155,7 +159,8 @@ def console_index(request):
         else:
             context = {
                 'products': Product.objects.filter(category_id=type_filter, group_id=1).order_by("name"),
-                'title': 'Consoles'
+                'title': 'Consoles',
+                'category': True
             }
         return render(request, 'product/product_index.html', context)
     if 'search_filter' in request.GET:
