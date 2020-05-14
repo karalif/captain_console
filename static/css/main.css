@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .edit-profile {
     background-color: #4BB543;
     color: #fff;
@@ -13,8 +12,6 @@
     height: 120px;
     length: 120px;
 }
-=======
->>>>>>> 26a626900ae74b47a958d9699a9c5d02514c5bab
 
 html, body {
     height: 100%;
@@ -272,16 +269,16 @@ a{
 }
 .container-billing{
     background-color: #f2f2f2;
-  padding: 5px 20px 15px 20px;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
 }
 
 .container-payment{
     background-color: #f2f2f2;
-  padding: 5px 20px 15px 20px;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
 }
 
 .col-50 {
@@ -376,11 +373,4 @@ label {
     .home-bullets {
         grid-template-columns: 1fr;
     }
-<<<<<<< HEAD
 }
-
-
-
-=======
-}
->>>>>>> 26a626900ae74b47a958d9699a9c5d02514c5bab
