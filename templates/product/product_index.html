@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <br>
+{% if category != True %}
 <div class="title-base ">
     <h1 class="Title">{{title}}</h1>
     <div class="sort_by" style="float:right;">
@@ -12,6 +13,8 @@
           </div>
     </div>
 </div>
+{% endif %}
+
 {% if title == "Games" %}
     <div class="form-group">
         <input autocomplete="on" type="search" class="form-control" id="search-box_game" placeholder="Search...">
