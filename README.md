@@ -31,6 +31,10 @@ Hér má sjá allt sem sem þurfti að hlaða niður áður en verkefnið var ke
 
 Einnig er vert að taka fram að villumeldingar virka einungis ef að DEBUG=False og allowed_hosts=['*'].
 
+VANTAR SMÁ TEXTA HÉR UM ÞESSA SKIPUN
+
+    $python manage.py runserver --insecure
+
 
 ### Bónus stig
 Í þessum kafla er listað upp allt það sem við gerðum umfram verkefnalýsingu og mun teljast til aukastiga. 
