@@ -161,12 +161,13 @@ def game_index(request):
 def console_index(request):
     if "type_filter" in request.GET:
         type_filter=request.GET["type_filter"]
+        print(type_filter)
         if type_filter=='price_low':
             context = {
                 'products': Product.objects.filter(group_id=1).order_by('price')}
-            if type_filter == 'price_high':
-                context = {
-                    'products': Product.objects.filter(group_id=1).order_by('-price')}
+        elif type_filter == 'price_high':
+            context = {
+                'products': Product.objects.filter(group_id=1).order_by('-price')}
         elif type_filter=='name':
             context = {
                 'products': Product.objects.filter(group_id=1).order_by('name')}
