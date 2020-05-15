@@ -65,3 +65,5 @@ Helga Lárusdóttir<br>
 Katla Rún Arnórsdóttir <br>
 Kara Líf Ingibergsdóttir
 
+### Þakkir
+Friðrik Snær Tómasson er hetja.
