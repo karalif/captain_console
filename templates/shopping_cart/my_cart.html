@@ -12,9 +12,10 @@
             {% endfor %}
         {% endif %}
     </div>
+
     <div class="carttotal-container">
         {% if not items%}
-            <a href="/" class="button buy-button">Start shopping</a>
+            <a href="/" class="button normal-button">Start shopping</a>
         {% else %}
         <br><br>
             <span class="cart-total">Total Price: {{totalprice}} USD</span>
