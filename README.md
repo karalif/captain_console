@@ -39,7 +39,7 @@ Hér má sjá allt sem sem þarf að hlaða niður áður en verkefnið er keyrt
 ### Annað
 Gott er að vita að til þess að geta skráð sig inn sem svokallaður super user þá er notendanafn og lykilorð fyrir þá virkni eftirfarandi 
 
-notendanafn: super
+notendanafn: super <br>
 lykilorð: superuser
 
 ### Bónus stig
