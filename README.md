@@ -36,6 +36,12 @@ Hér má sjá allt sem sem þarf að hlaða niður áður en verkefnið er keyrt
 
     $pip install psycopg2-binary 
 
+### Annað
+Gott er að vita að til þess að geta skráð sig inn sem svokallaður super user þá er notendanafn og lykilorð fyrir þá virkni eftirfarandi 
+
+notendanafn: super
+lykilorð: superuser
+
 ### Bónus stig
 Í þessum kafla er listað upp allt það sem við gerðum umfram verkefnalýsingu og mun teljast til aukastiga. 
 
