@@ -29,6 +29,8 @@ Hér má sjá allt sem sem þurfti að hlaða niður áður en verkefnið var ke
 
     $pip install psycopg2-binary 
 
+Einnig er vert að taka fram að villumeldingar virka einungis ef að DEBUG=False og allowed_hosts=['*'].
+
 
 ### Bónus stig
 Í þessum kafla er listað upp allt það sem við gerðum umfram verkefnalýsingu og mun teljast til aukastiga. 
