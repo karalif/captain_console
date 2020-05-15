@@ -28,6 +28,9 @@ html, body {
     background: white;
     color: black;
     font-family: "Tahoma";
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 * {
@@ -121,6 +124,7 @@ a{
 
 .navbar-default {
     margin: 0;
+    margin-bottom: 20px;
 }
 
 .navbar-brand{
@@ -247,6 +251,7 @@ a{
     transition: opacity 0.5s;
     opacity: 1;
     margin-top: 5px;
+    margin-bottom: 5px;
     border-radius: 5px;
 }
 
@@ -374,6 +379,33 @@ label {
     text-align: center;
     margin-top: 100px;
 
+}
+
+.error-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-text {
+    font-size: 50px;
+    font-weight: 900;
+}
+
+.error-button {
+    padding: 20px;
+    background-color: #4BB543;
+    color: #fff;
+    text-decoration: none;
+    opacity: 1;
+    transition: opacity 0.5s;
+    border-radius: 5px;
+}
+
+.error-button:hover {
+    opacity: 0.5;
+    text-decoration: none;
 }
 
 @media only screen and (max-width: 1080px) {

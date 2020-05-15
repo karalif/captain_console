@@ -1,11 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-<br><br>
     <h1 class="product-name">{{ product.name }}</h1>
     <p class="product-description">{{ product.description}}</p>
-<div class="product-info">
-    <span><strong>Price:</strong> {{ product.price}} USD<br></span>
-<span><strong>Age Limit:</strong> {{ product.age_limit}} years</span>
+    <div class="product-info">
+        <span><strong>Price:</strong> {{ product.price}} USD</span>
+        <span><strong>Age Limit:</strong> {{ product.age_limit}} years</span>
     </div>
     {% for product_image in product.productimage_set.all %}
         <img src="{{product_image.image}}"class="product-img" />
@@ -16,11 +15,10 @@
     {% endif %}
     <a href="{% url 'add_to_cart' product.id %}" class = "button add-button">Add to cart</a>
 
-<br><br><br>
     <h3>Your recently viewed products</h3>
-<div class="products-review">
-    {% for item in reviewedItems %}
-        {% include 'product/reviewed_items.html' with rev_item=item %}
-    {% endfor %}
-{% endblock %}
+    <div class="products-review">
+        {% for item in reviewedItems %}
+            {% include 'product/reviewed_items.html' with rev_item=item %}
+        {% endfor %}
     </div>
+{% endblock %}

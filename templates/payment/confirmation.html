@@ -8,7 +8,7 @@
     <h4>You can view your order here below: </h4>
     <br>
     {% for item in items %}
-        <img class ="payment-img" src="{{item.itemimage_set.first.image}}"/>
+        <img class ="payment-img" src="{{item.productimage_set.first.image}}"/>
         <p><a href="/product/{{item.id}}" class="cart-items">{{item.name}} : </a>
         <span class="price">{{item.price}} USD</span></p>
     {% endfor %}
