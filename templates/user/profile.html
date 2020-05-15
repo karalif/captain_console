@@ -1,26 +1,51 @@
 {% extends "base.html" %}
 {% block content %}
+<!-- ICON -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- -->
 
+{% if user.profile_image != '' or user.name != '' and user.address != '' or user.zip_code != '' or user.city != '' or user.country != '' %}
 <div class="well user">
+    {% if user.profile_image != '' %}
     <div>
         <img class="user-img" src="{{user.profile_image}}"/>
-
     </div>
+    {% else %}
+     <i class="fa fa-user" style="font-size:60px"></i>
+    {% endif %}
+    {% if user.name != '' %}
         <h2> {{user.name}}</h2>
     <br>
+    {% endif %}
         <h4> {{user.birth_date}}</h4>
     <br>
+    {% if user.address != '' %}
         <h4><i class="fa fa-address-card-o"></i> {{user.address}}</h4>
     <br>
+    {% endif %}
+    {% if user.zip_code != '' %}
         <h4><i class="fa fa-institution"></i> {{user.zip_code}}</h4>
     <br>
+    {% endif %}
+    {% if user.city != '' %}
         <h4><i class="fa fa-institution"></i> {{user.city}}</h4>
     <br>
+    {% endif %}
+    {% if user.country != '' %}
         <h4><i class="fa fa-institution"></i> {{user.country}}</h4>
+    {% endif %}
+    <br>
+    <a class="button edit-profile" href="{% url 'edit_profile' %}">Edit profile</a>
 </div>
+{% else %}
+ <i class="fa fa-user" style="font-size:60px"></i>
+
+    <a class="button fill-in" href="{% url 'edit_profile' %}">Fill in informations about you</a>
 
 
-<a class="button edit-profile" href="{% url 'edit_profile' %}">Edit profile</a>
-
+{% endif %}
 {% endblock %}
-

@@ -27,8 +27,5 @@ def edit_profile(request):
  })
 
 def profile(request):
-    profile =Profile.objects.filter(user=request.user).first()
-    print(profile)
     context={'user': Profile.objects.filter(user=request.user).first() }
     return render(request,'user/profile.html',context)
-

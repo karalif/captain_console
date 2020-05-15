@@ -102,7 +102,7 @@ def index(request):
         else:
             context = {
                 'products': Product.objects.filter(category_id=type_filter).order_by("name"),
-                'category': True
+                'category': False
             }
         return render(request, 'product/product_index.html', context)
     context={'products': Product.objects.all()}
