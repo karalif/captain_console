@@ -12,15 +12,15 @@ def get_product_by_id(request, id):
             product = get_object_or_404(ReviewedItems, pk=x.id)
             product.delete()
 
-    if len(ReviewedItems.objects.filter(user_id=request.user.id)) == 5:
+    if len(ReviewedItems.objects.filter(user_id=request.user.id)) == 6:
         min_id = min(id_list)
         product = get_object_or_404(ReviewedItems, pk=min_id)
         product.delete()
 
-    add_reviewed_item(request, id)
     prod = []
     for x in ReviewedItems.objects.filter(user_id=request.user.id):
         prod.append(x)
+    add_reviewed_item(request, id)
     context = {
         'product': get_object_or_404(Product, pk=id),
         'is_superuser': request.user.is_superuser,
@@ -102,7 +102,7 @@ def index(request):
         else:
             context = {
                 'products': Product.objects.filter(category_id=type_filter).order_by("name"),
-                'category': False
+                'category': True
             }
         return render(request, 'product/product_index.html', context)
     context={'products': Product.objects.all()}
