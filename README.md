@@ -1,14 +1,14 @@
 
-#Captain Console
+## Captain Console
 Captain Console online website
 
-##Tilgangur
+### Tilgangur
 Læra að setja upp vefsíðu frá grunni með hjálp Django, ElephantSQL og Python þar sem aðal áskorunin er að setja saman ýmsar mismunandi skrár og láta þær tala saman og skila heilstæðu kerfi. 
 
-##Lýsing
+### Lýsing
 Þessi vefsíða er fyrsta tilvist verslunarinnar Captain Console á internetinu. Markmið vefsíðunarinnar er að bjóða upp á víðtækt og spennandi úrval gamaldags leikjatalva og leikja. Þessi vefsíða á að hjálpa fyrirtækinu að stækka og dafna í heimi vefverslanna þar sem hún gerir viðskiptavinum kleift að nálgast vörur á einfaldan og þægilegan máta og veitir þeim helstu upplýsingar um hverja vöru fyrir sig.
 
-##Að byrja
+### Að byrja
 
 Eftirfarandi leiðbeiningar munu aðstoða við uppsetningu kerfisins.
 
@@ -24,7 +24,7 @@ Sjá kaflann um Niðurhöl áður en haldið er áfram í þessum kafla.
 
     $python manage.py runserver
 
-###Niðurhöl
+### Niðurhöl
 Hér má sjá allt sem sem þurfti að hlaða niður áður en verkefnið var keyrt upp á vafranum.
 
     $pip install psycopg2-binary 
@@ -38,7 +38,7 @@ Hægt er að ýta á "profile" og þar sérst yfirlit. Einnig er hægt að fara 
 Admin getur búið til nýja vöru fyrir síðuna, uppfært vörur og eytt þeim af síðunni.
 
 
-## Built With
+### Built With
 
 * HTML5  - Nýjasta útgáfa af HyperText Markup Language.
 * CSS3 - Style Sheet Language sem stýlar HTML5 skjöl.
@@ -48,7 +48,7 @@ Admin getur búið til nýja vöru fyrir síðuna, uppfært vörur og eytt þeim
 * [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
 
-## Eigendur
+### Eigendur
 
 Arndís Einarsdóttir
 Helga Lárusdóttir
