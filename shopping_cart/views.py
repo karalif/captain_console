@@ -29,9 +29,8 @@ def add_to_cart(request, id):
         cartitem = Cart(user_id=request.user.id, product_id=id, quantity=1)
     cartitem.save()
     print()
-    return render(request, 'product/product_details.html', {
-            'product': get_object_or_404(Product, pk=id),
-    })
+    return redirect('/products/' + str(id))
+
 
 def _total_price(prodid_list, u_id):
     totalPrice = 0

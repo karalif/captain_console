@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <!-- -->
 
-{% if user.profile_image != '' or user.name != '' and user.address != '' or user.zip_code != '' or user.city != '' or user.country != '' %}
+{% if user.profile_image != '' or user.name != '' or user.address != '' or user.zip_code != '' or user.city != '' or user.country != '' %}
 <div class="well user">
     {% if user.profile_image != '' %}
     <div>
@@ -39,17 +39,13 @@
         <h4><i class="fa fa-institution"></i> {{user.country}}</h4>
     {% endif %}
     <br>
-    <a class="button edit-profile" href="{% url 'edit_profile' %}">Edit profile</a>
+    <a class="button normal-button" href="{% url 'edit_profile' %}">Edit profile</a>
 </div>
 {% else %}
  <i class="fa fa-user" style="font-size:60px"></i>
-<<<<<<< HEAD
-    <a class="button fill-in" href="{% url 'edit_profile' %}">Fill in informations about you</a>
-=======
 
-    <a class="button fill-in" href="{% url 'edit_profile' %}">Fill in informations about you</a>
+    <a class="button normal-button" href="{% url 'edit_profile' %}">Fill in informations about you</a>
 
 
->>>>>>> 07f3178b85d6ce9497228746cbd90865c693161d
 {% endif %}
 {% endblock %}
