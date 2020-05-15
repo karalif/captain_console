@@ -15,8 +15,11 @@
     {% endif %}
     <a href="{% url 'add_to_cart' product.id %}" class = "button add-button">Add to cart</a>
 
+<br><br><br>
     <h3>Your recently reviewed products</h3>
+<div class="products-review">
     {% for item in reviewedItems %}
         {% include 'product/reviewed_items.html' with rev_item=item %}
     {% endfor %}
 {% endblock %}
+    </div>
