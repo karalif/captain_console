@@ -28,6 +28,7 @@ VANTAR SMÁ TEXTA HÉR UM ÞESSA SKIPUN
 
     $python manage.py runserver --insecure
 
+### Villumeldingar
 Ef farið er inná 127.0.0.1:8000/admin fæst eftirfarandi villumelding: Python quit unexpectedly. Í þessu tilfelli þarf að endurkeyra síðuna í gegnum terminal og best væri að skrá sig inn undir log in hnappi efst á hægri horni síðunnar og nota þar admin notendanafn og lykilorð.
 
 Einnig er vert að taka fram að villumeldingar virka einungis ef að DEBUG=False og allowed_hosts=['*'].
