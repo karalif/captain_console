@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
+<br><br>
 <div class="container-cart-items">
     <h2>Overview of your order</h2>
     <h4 style="color:black">Items in Cart
         <span class="price" style="color:black">
             <i class="fa fa-shopping-cart"style="color:black"></i>
         </span>
-        {{itemcount}}
+        {{itemcount}}<br><br>
     </h4>
     {% for item in items %}
         <img class ="payment-img" src="{{item.itemimage_set.first.image}}"/>
@@ -16,7 +17,7 @@
     <hr>
     <h4 style="color:black">Total Price: {{totalprice}} USD</h4>
     <hr>
-    <a href="/payment/billing/" class = "back-forth-btn">Go back to payment info</a>
-    <a href="/payment/confirmation" class = "back-forth-btn">Confirm Order</a>
+    <a href="/payment/billing/" class = "button normal-button">Go back</a>
+    <a href="/payment/confirmation" class = "button buy-button">Confirm Order</a>
 </div>
 {% endblock %}

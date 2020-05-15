@@ -1,9 +1,17 @@
+.fill-in{
+    background-color: grey;
+    color: white;
+    padding: 50px;
+    text-align: center
+}
+
 .edit-profile {
     background-color: #4BB543;
     color: #fff;
     padding: 10px;
     text-align: center
 }
+
 .user{
     width:50%
 }
@@ -234,25 +242,37 @@ a{
     font-family: "Tahoma";
 }
 
-.btn {
-    padding: .5rem 1rem;
-    background: grey;
-    color: white;
-    border: 1px solid transparent;
-    border-radius: .25rem;
-    font-family: "Tahoma";
+.button {
+    padding: 5px;
+    transition: opacity 0.5s;
+    opacity: 1;
+    margin-top: 5px;
+    border-radius: 5px;
 }
 
-.btn-big {
-    padding: .7rem 1.3rem;
-    line-height: 1.3rem;
+.button:hover {
+    opacity: 0.5;
+    color: #fff;
+    text-decoration: none;
 }
 
-.btn:hover {
-    color: white; !important;
-    background: dimgrey;
+.delete-button {
+    background-color: #c70000;
+    color: #fff;
+}
+.buy-button {
+    background-color: #4BB543;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
 }
 
+.normal-button {
+    background-color: dimgrey;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
 .row .column {
     width: 350px;
     padding: 50px;

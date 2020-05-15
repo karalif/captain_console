@@ -23,6 +23,13 @@
     text-align: center;
 }
 
+.normal-button {
+    background-color: dimgrey;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
 .cart-item {
     display: flex;
     flex-direction: column;
@@ -39,7 +46,7 @@
 .carttotal-container {
     display: flex;
     flex-direction: column;
-    align-self: flex-end;
+    align-self: flex-start;
     margin-top: 20px;
 }
 

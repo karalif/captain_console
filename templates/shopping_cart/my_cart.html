@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+
 <div class="cart">
     <h2 class="cart-heading">Hello, welcome to your cart!</h2>
     <div class="products">
@@ -15,8 +16,10 @@
         {% if not items%}
             <a href="/" class="button buy-button">Start shopping</a>
         {% else %}
+        <br><br>
             <span class="cart-total">Total Price: {{totalprice}} USD</span>
             <a href="{% url 'payment-billing_address' %}" class="button buy-button">Buy products</a>
+
         {% endif %}
     </div>
 </div>
