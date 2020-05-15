@@ -23,15 +23,13 @@ Sjá kaflann um Niðurhöl áður en haldið er áfram í þessum kafla.
 Þegar venv mappan er komin inn í möppu verkefnisins og tengd þá á að fylgja eftirfarandi skrefnum til þess að keyra upp vefsíðuna á vafranum þínum. 
 
     $python manage.py runserver
-    
-VANTAR SMÁ TEXTA HÉR UM ÞESSA SKIPUN
-
-    $python manage.py runserver --insecure
 
 ### Villumeldingar
 Ef farið er inná 127.0.0.1:8000/admin fæst eftirfarandi villumelding: Python quit unexpectedly. Í þessu tilfelli þarf að endurkeyra síðuna í gegnum terminal og best væri að skrá sig inn undir log in hnappi efst á hægri horni síðunnar og nota þar admin notendanafn og lykilorð.
 
-Einnig er vert að taka fram að villumeldingar virka einungis ef að DEBUG=False og allowed_hosts=['*'].
+Einnig er vert að taka fram að villumeldingar virka einungis ef að DEBUG=False og allowed_hosts=['*']. Í þessu tilfelli þarf að keyra eftirfarandi skipun í terminal.
+
+    $python manage.py runserver --insecure
 
 ### Niðurhöl
 Hér má sjá allt sem sem þarf að hlaða niður áður en verkefnið er keyrt upp á vafranum.
