@@ -21,7 +21,6 @@ def edit_profile(request):
             profile.user = request.user
             profile.save()
             return redirect('profile')
-
     return render(request, 'user/edit_profile.html',{
         'form': ProfileForm(instance=profile)
  })

@@ -40,15 +40,19 @@
         </li>
 
         {% if user.is_authenticated %}
-          <li>
+        <li>
+          {% if not user.profile.profile_image %}
+            <a href="{% url 'profile' %}">Profile <i class="fa fa-user"></i></a>
+          {% else %}
             <a href="{% url 'profile' %}">Profile<img src = "{{ user.profile.profile_image }}" class="profile-image"/></a>
-          </li>
+          {% endif %}
+        </li>
 
+        <li>
+          <a href="{% url 'logout' %}">Log out
+            <i class="fa fa-lock" style="font-size:20px"></i> </a>
+        </li>
 
-          <li>
-            <a href="{% url 'logout' %}">Log out
-              <i class="fa fa-lock" style="font-size:20px"></i> </a>
-          </li>
 
         {% else %}
           <li>
