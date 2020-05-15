@@ -4,21 +4,28 @@
     <p class="product-description">{{ product.description}}</p>
     <div class="product-info">
         <span><strong>Price:</strong> {{ product.price}} USD</span>
+        {% if product.age_limit != '' %}
         <span><strong>Age Limit:</strong> {{ product.age_limit}} years</span>
+        {% endif %}
+        <br><span><strong>Category:</strong> {{ product.category }}</span>
     </div>
     {% for product_image in product.productimage_set.all %}
         <img src="{{product_image.image}}"class="product-img" />
     {% endfor %}
+
     {% if is_superuser %}
         <a href="{% url 'delete_product' product.id %}" class="button delete-button">Delete product</a>
         <a href="{% url 'update_product' product.id %}" class="button normal-button">Update product</a>
+    {% else %}
+        <a href="{% url 'add_to_cart' product.id %}" class = "button add-button">Add to cart</a>
     {% endif %}
-    <a href="{% url 'add_to_cart' product.id %}" class = "button add-button">Add to cart</a>
 
     <h3>Your recently viewed products</h3>
+
     <div class="products-review">
         {% for item in reviewedItems %}
             {% include 'product/reviewed_items.html' with rev_item=item %}
         {% endfor %}
     </div>
+
 {% endblock %}

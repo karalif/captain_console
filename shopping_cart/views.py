@@ -7,6 +7,8 @@ from .models import Cart
 
 @login_required()
 def my_cart(request):
+    if request.user.is_superuser:
+        return render(request, '404.html')
     if request.method == 'GET':
         prod = []
         for x in Cart.objects.filter(user_id = request.user.id):
@@ -18,6 +20,8 @@ def my_cart(request):
 
 @login_required()
 def add_to_cart(request, id):
+    if request.user.is_superuser:
+        return render(request, '404.html')
     prod = []
     for x in Cart.objects.filter(user_id=request.user.id):
         prod.append(str(x))
@@ -41,6 +45,8 @@ def _total_price(prodid_list, u_id):
 
 @login_required()
 def delete_from_cart(request, id):
+    if request.user.is_superuser:
+        return render(request, '404.html')
     for x in Cart.objects.filter(user_id=request.user.id):
         if str(x) == str(id):
             product = get_object_or_404(Cart, pk=x.id)

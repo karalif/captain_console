@@ -3,6 +3,8 @@ from product.models import Product, ProductImage
 from django import forms
 
 
+
+
 class ProductUpdateForm(ModelForm):
     image = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
     class Meta:

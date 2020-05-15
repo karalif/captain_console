@@ -63,12 +63,24 @@ def delete_product(request, id):
 @login_required
 def update_product(request, id):
     instance = get_object_or_404(Product, pk=id)
+    id_list=[]
     if not request.user.is_superuser:
         return redirect('/products')
     if request.method == 'POST':
         form = ProductUpdateForm(data=request.POST,instance=instance)
         if form.is_valid():
-            form.save()
+            product = form.save()
+            product_image = ProductImage(image=request.POST['image'], product=product)
+            print('image',type(product_image))
+            if len(product_image.image)>0:
+                product_image.save()
+            for x in ProductImage.objects.filter(product_id=id):
+                id_list.append(x.id)
+            if len(id_list)==3:
+                min_id=min(id_list)
+
+                old_image=get_object_or_404(ProductImage, pk=min_id)
+                old_image.delete()
             return redirect('product_details', id=id)
     else:
         form = ProductUpdateForm(instance=instance)
@@ -143,6 +155,8 @@ def game_index(request):
         return JsonResponse({'data': products})
     context = {'products': Product.objects.filter(group_id=2).order_by('name'), 'title': 'Games'}
     return render(request, 'product/product_index.html', context)
+
+
 #/products/consoles?type=
 def console_index(request):
     if "type_filter" in request.GET:

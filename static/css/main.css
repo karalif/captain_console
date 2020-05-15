@@ -12,6 +12,13 @@
     text-align: center
 }
 
+.update-button {
+    /*background-color: #4BB543;
+    color: #fff; */
+    padding: 10px;
+    text-align: center;
+}
+
 .user{
     width:50%
 }
@@ -28,9 +35,9 @@ html, body {
     background: white;
     color: black;
     font-family: "Tahoma";
-    display: flex;
+  /*  display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between; */
 }
 
 * {
