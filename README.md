@@ -52,8 +52,8 @@ Admin getur búið til nýja vöru fyrir síðuna, uppfært vörur og eytt þeim
 
 ### Eigendur
 
-Arndís Einarsdóttir
-Helga Lárusdóttir
-Katla Rún Arnórsdóttir
+Arndís Einarsdóttir <br>
+Helga Lárusdóttir<br>
+Katla Rún Arnórsdóttir <br>
 Kara Líf Ingibergsdóttir
 
