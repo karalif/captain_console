@@ -27,18 +27,15 @@
         <li><a href="{% url 'product-console_index' %}">Consoles</a></li>
 
       </ul>
-
-      <!--{% if user.is_authenticated %}
-          <img src="{{ user.profile.profile_image }}" class="profile-image" />
-      {% endif %}-->
-
       <ul class="nav navbar-nav navbar-right">
         <li>
+
           {% if not user.is_superuser %}
           <a href="{% url 'my_cart' %}">Cart
             <i class="fa fa-shopping-cart" style="font-size:20px"></i>
           </a>
           {% endif %}
+
         </li>
         {% if user.is_superuser %}
           <li>
@@ -50,24 +47,26 @@
 
         {% if user.is_authenticated %}
           <li>
+            {% if not user.is_superuser %}
             {% if not user.profile.profile_image %}
               <a href="{% url 'profile' %}">Profile <i class="fa fa-user"></i></a>
             {% else %}
               <a href="{% url 'profile' %}">Profile<img src = "{{ user.profile.profile_image }}" class="profile-image"/></a>
             {% endif %}
+            {% endif %}
           </li>
-
           <li>
             <a href="{% url 'logout' %}">Log out
               <i class="fa fa-lock" style="font-size:20px"></i> </a>
           </li>
-
         {% elif auth != None and auth == True %}
           <li>
+            {% if not user.is_superuser %}
             {% if not user.profile.profile_image %}
               <a href="{% url 'profile' %}">Profile <i class="fa fa-user"></i></a>
             {% else %}
               <a href="{% url 'profile' %}">Profile<img src = "{{ user.profile.profile_image }}" class="profile-image"/></a>
+            {% endif %}
             {% endif %}
           </li>
 

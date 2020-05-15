@@ -5,10 +5,9 @@ from user.forms.profile_form import ProfileForm
 from django.contrib.auth.decorators import login_required
 
 
-@login_required
 def register(request):
-    if request.method=='POST':
-        form=UserCreationForm(data=request.POST)
+    if request.method == 'POST':
+        form = UserCreationForm(data=request.POST)
         if form.is_valid():
             form.save()
             return redirect('login')
@@ -34,5 +33,5 @@ def edit_profile(request):
 
 @login_required
 def profile(request):
-    context = {'user': Profile.objects.filter(user=request.user).first(), 'auth': request.user.is_authenticated }
-    return render(request,'user/profile.html',context)
+    context = {'user': Profile.objects.filter(user=request.user).first(), 'auth': request.user.is_authenticated, 'super': request.user.is_superuser }
+    return render(request,'user/profile.html', context)

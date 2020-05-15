@@ -19,8 +19,22 @@
     text-align: center;
 }
 
+.payment-button {
+    background-color: #4BB543;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    margin-top: 20px;
+    margin-bottom:  20px;
+}
+
 .user{
-    width:50%
+    width:100%
 }
 
 .user-img{
@@ -35,9 +49,9 @@ html, body {
     background: white;
     color: black;
     font-family: "Tahoma";
-  /*  display: flex;
+    display: flex;
     flex-direction: column;
-    justify-content: space-between; */
+    justify-content: space-between;
 }
 
 * {

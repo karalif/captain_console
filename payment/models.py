@@ -17,7 +17,7 @@ class BillingInfo(models.Model):
 
 class PaymentInfo(models.Model):
     full_name = models.CharField(max_length=255)
-    card_number = models.DecimalField(max_digits=19, decimal_places=0)
+    card_number = models.DecimalField(max_digits=16, decimal_places=0)
     exp_month = models.DecimalField(max_digits=2, decimal_places=0)
     exp_year = models.DecimalField(max_digits=2, decimal_places=0)
     cvv = models.DecimalField(max_digits=3, decimal_places=0)
