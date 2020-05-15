@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from product.models import Product
+from django.core.exceptions import ValidationError
 
 
 class BillingInfo(models.Model):
@@ -14,13 +15,28 @@ class BillingInfo(models.Model):
     user = models.ForeignKey(User, on_delete=models.DO_NOTHING, null=True)
     active = models.BooleanField(default=True)
 
+def credidcardcheck(value):
+    if len(str(value)) != 16:
+        raise ValidationError('Invalid length')
+
+def exp_monthcheck(value):
+    if value > 12:
+        raise ValidationError('Invalid month')
+
+def exp_yearcheck(value):
+    if len(str(value)) != 2:
+        raise ValidationError('Invalid year')
+
+def cvv_check(value):
+    if len(str(value)) != 3:
+        raise ValidationError('Invalid length')
 
 class PaymentInfo(models.Model):
     full_name = models.CharField(max_length=255)
-    card_number = models.DecimalField(max_digits=16, decimal_places=0)
-    exp_month = models.DecimalField(max_digits=2, decimal_places=0)
-    exp_year = models.DecimalField(max_digits=2, decimal_places=0)
-    cvv = models.DecimalField(max_digits=3, decimal_places=0)
+    card_number = models.DecimalField(max_digits=16, decimal_places=0, validators=[credidcardcheck])
+    exp_month = models.DecimalField(max_digits=2, decimal_places=0, validators=[exp_monthcheck])
+    exp_year = models.DecimalField(max_digits=2, decimal_places=0, validators=[exp_yearcheck])
+    cvv = models.DecimalField(max_digits=3, decimal_places=0,  validators=[cvv_check])
     user = models.ForeignKey(User, on_delete=models.DO_NOTHING, null=True)
     active = models.BooleanField(default=True)
 
