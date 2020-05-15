@@ -42,6 +42,8 @@ Gott er að vita að til þess að geta skráð sig inn sem svokallaður super u
 notendanafn: super <br>
 lykilorð: superuser
 
+Einnig er vert að athuga að ákveðnir eiginleikar virka ekki nema notendur séu skráðir inn. Þar má m.a. nefna að ekki sést hvaða vörur voru skoðaðar síðast, yfirlit yfir körfu og það er ekki hægt að bæta hlutum í körfu.
+
 ### Bónus stig
 Í þessum kafla er listað upp allt það sem við gerðum umfram verkefnalýsingu og mun teljast til aukastiga. 
 
