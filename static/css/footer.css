@@ -5,7 +5,7 @@
     background-color: #333;
     color: lightgrey;
     display: grid;
-    grid-template-columns: 3fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     padding: 10px;
     font-size: 12px;
 }
@@ -40,6 +40,12 @@
     padding: 10px;
     text-align: center;
 
+}
+
+.footer-section {
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-right: 50px;
 }
 
 @media only screen and (max-width: 1080px) {
